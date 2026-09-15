@@ -101,7 +101,7 @@ export default function MembresPage() {
                     </div>
                     <div className="min-w-0">
                       <h2 className="font-bold leading-tight">
-                        <Link href="#" className="hover:text-primary">
+                        <Link href="/communaute/membres/aichatou-s" className="hover:text-primary">
                           {m.name}
                         </Link>
                       </h2>
