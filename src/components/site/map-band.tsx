@@ -1,30 +1,84 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import * as maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
-/* Bande « carte de la diaspora » — ouverte par défaut sur l'accueil,
-   repliée partout ailleurs. Aperçu maquette : la vraie carte MapLibre
-   arrive avec le développement (CDC §7.1 géolocalisation). */
+/* Bande « carte de la diaspora » — vraie carte interactive MapLibre + OpenStreetMap,
+   comme le site modèle. Ouverte par défaut sur l'accueil, repliée ailleurs.
+   Les compteurs par ville sont des données d'exemple (branchés à la base en S5). */
 
-const VILLES = [
-  { name: "Cotonou", n: "312", top: "54%", left: "49.5%", big: true },
-  { name: "Paris", n: "214", top: "26%", left: "47%", big: true },
-  { name: "Bruxelles", n: "96", top: "21%", left: "48.5%" },
-  { name: "Marseille", n: "71", top: "31%", left: "48%" },
-  { name: "Montréal", n: "88", top: "27%", left: "28%" },
-  { name: "New York", n: "64", top: "33%", left: "27%" },
-  { name: "Abidjan", n: "57", top: "60%", left: "43.5%" },
-  { name: "Dakar", n: "43", top: "48%", left: "41%" },
-  { name: "Lomé", n: "39", top: "63%", left: "47.5%" },
-  { name: "Lagos", n: "52", top: "56%", left: "54%" },
-  { name: "Libreville", n: "18", top: "70%", left: "52.5%" },
-  { name: "Canton", n: "22", top: "44%", left: "79%" },
+const VILLES: { name: string; n: number; lng: number; lat: number; big?: boolean }[] = [
+  { name: "Cotonou", n: 312, lng: 2.39, lat: 6.37, big: true },
+  { name: "Paris", n: 214, lng: 2.35, lat: 48.85, big: true },
+  { name: "Bruxelles", n: 96, lng: 4.35, lat: 50.85 },
+  { name: "Marseille", n: 71, lng: 5.37, lat: 43.3 },
+  { name: "Montréal", n: 88, lng: -73.57, lat: 45.5 },
+  { name: "New York", n: 64, lng: -74.01, lat: 40.71 },
+  { name: "Abidjan", n: 57, lng: -4.02, lat: 5.35 },
+  { name: "Dakar", n: 43, lng: -17.47, lat: 14.72 },
+  { name: "Lomé", n: 39, lng: 1.22, lat: 6.13 },
+  { name: "Lagos", n: 52, lng: 3.38, lat: 6.52 },
+  { name: "Libreville", n: 18, lng: 9.44, lat: 0.42 },
+  { name: "Canton", n: 22, lng: 113.26, lat: 23.13 },
 ];
 
 const FILTRES = ["Membres", "Associations", "Adresses", "Événements"];
 
 export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+
+  useEffect(() => {
+    if (!open || !containerRef.current || mapRef.current) return;
+
+    const map = new maplibregl.Map({
+      container: containerRef.current,
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: "raster",
+            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            attribution: "© OpenStreetMap",
+          },
+        },
+        layers: [{ id: "osm", type: "raster", source: "osm" }],
+      },
+      bounds: [
+        [-82, -8],
+        [118, 55],
+      ],
+      fitBoundsOptions: { padding: { top: 30, bottom: 30, left: 70, right: 70 } },
+      minZoom: 0.8,
+      maxZoom: 12,
+      attributionControl: { compact: true },
+    });
+
+    // Navigation au clic sur +/- ; pas de zoom à la molette (la page doit défiler)
+    map.scrollZoom.disable();
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+
+    for (const v of VILLES) {
+      const el = document.createElement("button");
+      el.className = v.big ? "bdm-marker bdm-marker-big" : "bdm-marker";
+      el.innerHTML = `<b>${v.n}</b>&nbsp;${v.name}`;
+      el.setAttribute("aria-label", `${v.n} membres à ${v.name}`);
+      new maplibregl.Marker({ element: el, anchor: "center" })
+        .setLngLat([v.lng, v.lat])
+        .addTo(map);
+    }
+
+    mapRef.current = map;
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, [open]);
 
   return (
     <section aria-label="Carte de la diaspora">
@@ -37,35 +91,11 @@ export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
       </button>
 
       {open && (
-        <div className="relative h-[340px] overflow-hidden border-b border-line bg-[#dfe9e2]">
-          {/* Fond « carte » stylisé */}
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-40"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 45% 40%, #c3d6c9 0 18%, transparent 19%), radial-gradient(circle at 30% 30%, #c3d6c9 0 12%, transparent 13%), radial-gradient(circle at 75% 45%, #c3d6c9 0 14%, transparent 15%), linear-gradient(#cfdcd3 1px, transparent 1px), linear-gradient(90deg, #cfdcd3 1px, transparent 1px)",
-              backgroundSize: "auto, auto, auto, 40px 40px, 40px 40px",
-            }}
-          />
-
-          {/* Marqueurs villes */}
-          {VILLES.map((v) => (
-            <button
-              key={v.name}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full font-bold shadow-sm hover:z-10 hover:scale-105 ${
-                v.big
-                  ? "z-[5] bg-primary text-white px-3 py-1.5 text-sm"
-                  : "bg-paper text-primary-dark border border-primary px-2 py-1 text-xs"
-              }`}
-              style={{ top: v.top, left: v.left }}
-            >
-              {v.n} <span className="font-semibold">{v.name}</span>
-            </button>
-          ))}
+        <div className="relative border-b border-line">
+          <div ref={containerRef} className="h-[380px] w-full bg-[#dfe9e2]" />
 
           {/* Légende + filtres */}
-          <div className="absolute bottom-3 left-3 rounded bg-paper/95 px-3 py-2 shadow-sm">
+          <div className="absolute bottom-3 left-3 z-10 rounded bg-paper/95 px-3 py-2 shadow-sm">
             <p className="text-sm font-bold">
               1 254 membres · <span className="text-primary">47 pays</span>
             </p>
@@ -76,7 +106,7 @@ export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
                   className={`rounded-full px-2.5 py-0.5 text-[0.7rem] font-bold ${
                     i === 0
                       ? "bg-primary text-white"
-                      : "border border-line text-ink-2 hover:border-primary hover:text-primary"
+                      : "border border-line bg-paper text-ink-2 hover:border-primary hover:text-primary"
                   }`}
                 >
                   {f}
@@ -84,10 +114,6 @@ export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
               ))}
             </div>
           </div>
-
-          <p className="absolute bottom-3 right-3 rounded bg-paper/80 px-2 py-1 text-[0.65rem] uppercase tracking-wider text-muted">
-            Aperçu maquette — carte interactive MapLibre à venir
-          </p>
         </div>
       )}
     </section>

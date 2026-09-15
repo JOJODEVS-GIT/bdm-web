@@ -64,7 +64,7 @@
   --color-paper-2: var(--paper-2);
 
   --font-sans: var(--font-body), system-ui, sans-serif;
-  --font-display: var(--font-display), Georgia, serif;
+  --font-display: var(--font-display), "Avenir Next", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -75,7 +75,7 @@ body {
 
 /* Titre de section façon modèle : "À LA une" — capitales + un mot en couleur */
 .section-title {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), "Avenir Next", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
@@ -104,3 +104,30 @@ body {
     var(--benin-red) 66.66%
   );
 }
+
+/* Marqueurs de la carte diaspora (MapLibre) */
+.bdm-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-primary-dark);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.18);
+  cursor: pointer;
+}
+.bdm-marker:hover { transform: scale(1.07); z-index: 10; }
+.bdm-marker-big {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  z-index: 5;
+}
+

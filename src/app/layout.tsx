@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+/* Typo : Bricolage Grotesque (titres — grotesque chaleureuse et expressive)
+   + Manrope (texte — lisible, moderne, la police du site modèle RDM). */
+
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "900"],
+  weight: ["600", "700", "800"],
 });
 
-const body = Source_Sans_3({
+const body = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
