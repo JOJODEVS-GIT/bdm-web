@@ -1,4 +1,11 @@
 import Link from "next/link";
+import {
+  SiteHeader,
+  SiteFooter,
+  SectionTitle,
+  AdSlot,
+  AlertsBox,
+} from "@/components/site/chrome";
 
 /*
  * MAQUETTE — Accueil (CDC §7.2), données d'exemple uniquement.
@@ -12,16 +19,19 @@ const alaUne = [
     title: "Retour à Cotonou : le parcours d'Aïchatou, ingénieure revenue de Montréal",
     cat: "Portrait",
     location: "Cotonou · Bénin",
+    href: "/magazine/article-exemple",
   },
   {
     title: "Les secteurs qui recrutent au Bénin en 2026 : le grand dossier",
     cat: "Emploi",
     location: "Bénin",
+    href: "/emploi",
   },
   {
     title: "La communauté béninoise de Paris prépare la fête nationale du 1er août",
     cat: "Communauté",
     location: "Paris · France",
+    href: "/communaute/membres",
   },
 ];
 
@@ -58,81 +68,10 @@ const agenda = [
   { title: "Soirée culturelle Bénin Canada", date: "11 OCT · 20H00", city: "Montréal" },
 ];
 
-const nav = [
-  { label: "Emploi & stages", href: "/emploi" },
-  { label: "Magazine", href: "/magazine" },
-  { label: "Communauté", href: "/communaute" },
-  { label: "Bonnes adresses", href: "/adresses" },
-  { label: "Agenda", href: "/agenda" },
-  { label: "Avantages", href: "/avantages" },
-];
-
-function SectionTitle({ pre, em, href }: { pre: string; em: string; href: string }) {
-  return (
-    <div className="flex items-baseline justify-between border-b-2 border-line pb-2 mb-5">
-      <h2 className="section-title text-lg text-ink">
-        {pre} <em>{em}</em>
-      </h2>
-      <Link href={href} className="text-sm font-semibold text-primary hover:underline">
-        Tout voir →
-      </Link>
-    </div>
-  );
-}
-
-function AdSlot({ label }: { label: string }) {
-  return (
-    <div className="flex items-center justify-center border border-dashed border-line bg-paper-2 text-muted text-xs uppercase tracking-widest h-24">
-      Publicité — {label}
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
-      {/* En-tête */}
-      <header className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex items-center justify-between py-4 gap-4">
-            <Link href="/" className="shrink-0">
-              <span className="font-display text-2xl font-black text-primary-darker leading-none">
-                Béninois<span className="text-primary"> du Monde</span>
-              </span>
-              <span className="block text-[0.65rem] uppercase tracking-[0.2em] text-muted">
-                Le réseau de la diaspora béninoise
-              </span>
-            </Link>
-            <div className="hidden md:flex items-center gap-3">
-              <Link
-                href="/connexion"
-                className="text-sm font-semibold text-ink-2 hover:text-primary"
-              >
-                Se connecter
-              </Link>
-              <Link
-                href="/publier"
-                className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark"
-              >
-                Publier
-              </Link>
-            </div>
-            <button
-              className="md:hidden rounded border border-line px-3 py-2 text-sm font-semibold"
-              aria-label="Ouvrir le menu"
-            >
-              Menu
-            </button>
-          </div>
-          <nav className="hidden md:flex gap-6 pb-3 text-sm font-bold uppercase tracking-wide">
-            {nav.map((n) => (
-              <Link key={n.href} href={n.href} className="text-ink-2 hover:text-primary">
-                {n.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Carte dépliable */}
       <button className="w-full bg-primary-darker py-2.5 text-center text-sm font-bold uppercase tracking-[0.15em] text-accent hover:bg-primary-dark">
@@ -145,7 +84,7 @@ export default function Home() {
           <div className="space-y-12">
             {/* À la une */}
             <section>
-              <SectionTitle pre="À la" em="une" href="/magazine" />
+              <SectionTitle pre="À la" em="une" href="/magazine/article-exemple" />
               <div className="grid gap-5 md:grid-cols-3">
                 {alaUne.map((a, i) => (
                   <article
@@ -168,7 +107,7 @@ export default function Home() {
                           i === 0 ? "text-2xl" : "text-base"
                         }`}
                       >
-                        <Link href="#" className="hover:text-primary">
+                        <Link href={a.href} className="hover:text-primary">
                           {a.title}
                         </Link>
                       </h3>
@@ -193,7 +132,7 @@ export default function Home() {
                       {o.type}
                     </span>
                     <Link
-                      href="#"
+                      href="/emploi"
                       className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white"
                     >
                       Consulter
@@ -205,7 +144,7 @@ export default function Home() {
 
             {/* Derniers articles */}
             <section>
-              <SectionTitle pre="Les derniers" em="articles" href="/magazine" />
+              <SectionTitle pre="Les derniers" em="articles" href="/magazine/article-exemple" />
               <div className="grid gap-5 sm:grid-cols-2">
                 {articles.map((a) => (
                   <article key={a.title} className="flex gap-4">
@@ -215,7 +154,7 @@ export default function Home() {
                         {a.cat}
                       </span>
                       <h3 className="mt-1 font-bold leading-snug">
-                        <Link href="#" className="hover:text-primary">
+                        <Link href="/magazine/article-exemple" className="hover:text-primary">
                           {a.title}
                         </Link>
                       </h3>
@@ -258,7 +197,7 @@ export default function Home() {
                       <p className="card-location mt-1">{a.partner}</p>
                     </div>
                     <Link
-                      href="#"
+                      href="/avantages"
                       className="shrink-0 text-xs font-bold uppercase text-primary hover:underline"
                     >
                       Consulter
@@ -290,28 +229,7 @@ export default function Home() {
           {/* Colonne latérale */}
           <aside className="space-y-8">
             <AdSlot label="pavé latéral" />
-            <div className="border-2 border-primary p-4">
-              <h3 className="section-title text-sm">
-                Gérer mes <em>alertes</em>
-              </h3>
-              <p className="mt-2 text-sm text-ink-2">
-                Recevez par e-mail les offres, articles et événements qui correspondent à vos
-                mots-clés.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {["Emploi", "Paris", "Retour au pays", "Informatique", "Étudiants"].map((k) => (
-                  <span
-                    key={k}
-                    className="rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark"
-                  >
-                    {k}
-                  </span>
-                ))}
-              </div>
-              <button className="mt-4 w-full rounded bg-primary py-2 text-sm font-bold text-white hover:bg-primary-dark">
-                Créer une alerte
-              </button>
-            </div>
+            <AlertsBox keywords={["Emploi", "Paris", "Retour au pays", "Informatique", "Étudiants"]} />
             <div>
               <h3 className="section-title text-sm border-b-2 border-line pb-2 mb-3">
                 Populaire <em>sur le site</em>
@@ -322,7 +240,10 @@ export default function Home() {
                     <span className="font-display text-2xl font-black text-line leading-none">
                       {i + 1}
                     </span>
-                    <Link href="#" className="font-semibold leading-snug hover:text-primary">
+                    <Link
+                      href="/magazine/article-exemple"
+                      className="font-semibold leading-snug hover:text-primary"
+                    >
                       {a.title}
                     </Link>
                   </li>
@@ -334,34 +255,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Pied de page */}
-      <footer className="mt-12 bg-primary-darker text-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-3">
-          <div>
-            <p className="font-display text-xl font-black">Béninois du Monde</p>
-            <p className="mt-2 text-sm text-white/70">
-              Le média et le réseau des Béninois où qu&apos;ils vivent. Édité par le HCBE.
-            </p>
-          </div>
-          <nav className="text-sm space-y-2">
-            {nav.map((n) => (
-              <Link key={n.href} href={n.href} className="block text-white/80 hover:text-accent">
-                {n.label}
-              </Link>
-            ))}
-          </nav>
-          <nav className="text-sm space-y-2">
-            {["Le HCBE", "Annonceurs", "Contact", "Mentions légales", "Confidentialité"].map(
-              (l) => (
-                <Link key={l} href="#" className="block text-white/80 hover:text-accent">
-                  {l}
-                </Link>
-              ),
-            )}
-          </nav>
-        </div>
-        <div className="tricolor" aria-hidden />
-      </footer>
+      <SiteFooter />
     </>
   );
 }
