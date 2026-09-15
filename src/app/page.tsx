@@ -71,12 +71,8 @@ const agenda = [
 export default function Home() {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader mapDefaultOpen />
 
-      {/* Carte dépliable */}
-      <button className="w-full bg-primary-darker py-2.5 text-center text-sm font-bold uppercase tracking-[0.15em] text-accent hover:bg-primary-dark">
-        ▾ Déplier la carte de la diaspora
-      </button>
 
       <main className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
@@ -132,7 +128,7 @@ export default function Home() {
                       {o.type}
                     </span>
                     <Link
-                      href="/emploi"
+                      href="/emploi/offre-exemple"
                       className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white"
                     >
                       Consulter

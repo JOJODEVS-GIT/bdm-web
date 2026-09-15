@@ -168,7 +168,7 @@ export default function EmploiPage() {
                   <div className="flex flex-wrap items-start gap-3">
                     <div className="min-w-0 flex-1">
                       <h2 className="font-bold leading-snug">
-                        <Link href="#" className="hover:text-primary">
+                        <Link href="/emploi/offre-exemple" className="hover:text-primary">
                           {o.title}
                         </Link>
                       </h2>
@@ -183,7 +183,7 @@ export default function EmploiPage() {
                       {o.type}
                     </span>
                     <Link
-                      href="#"
+                      href="/emploi/offre-exemple"
                       className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white"
                     >
                       Consulter
