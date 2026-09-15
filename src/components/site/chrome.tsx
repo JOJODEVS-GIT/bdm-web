@@ -16,15 +16,15 @@ export const NAV = [
 export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolean }) {
   return (
     <>
-      <header className="border-b border-line bg-paper">
-        {/* Rangée haute : logo + actions */}
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex items-center justify-between gap-6 py-6">
+      <header className="border-b border-line">
+        {/* Style A « Institutionnel inversé » : rangée haute en vert profond */}
+        <div className="bg-primary-darker text-white">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-6">
             <Link href="/" className="shrink-0">
-              <span className="font-display text-3xl font-black leading-none text-primary-darker">
-                Béninois<span className="text-primary"> du Monde</span>
+              <span className="font-display text-3xl font-extrabold leading-none">
+                Béninois<span className="text-accent"> du Monde</span>
               </span>
-              <span className="mt-1.5 block text-[0.7rem] uppercase tracking-[0.25em] text-muted">
+              <span className="mt-1.5 block text-[0.7rem] uppercase tracking-[0.25em] text-white/60">
                 Le réseau de la diaspora béninoise
               </span>
             </Link>
@@ -33,7 +33,7 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
               <Link
                 href="/recherche"
                 aria-label="Rechercher"
-                className="text-ink-2 hover:text-primary"
+                className="text-white/80 hover:text-accent"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                   <circle cx="11" cy="11" r="7" />
@@ -42,20 +42,20 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
               </Link>
               <Link
                 href="/connexion"
-                className="text-[0.95rem] font-semibold text-ink-2 hover:text-primary"
+                className="text-[0.95rem] font-semibold text-white/85 hover:text-accent"
               >
                 Se connecter
               </Link>
               <Link
                 href="/publier"
-                className="rounded bg-primary px-5 py-2.5 text-[0.95rem] font-bold text-white hover:bg-primary-dark"
+                className="rounded bg-accent px-5 py-2.5 text-[0.95rem] font-bold text-ink hover:bg-accent-dark"
               >
                 Publier
               </Link>
             </div>
 
             <button
-              className="rounded border border-line px-3 py-2 text-sm font-semibold md:hidden"
+              className="rounded border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
               aria-label="Ouvrir le menu"
             >
               Menu
@@ -63,14 +63,14 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
           </div>
         </div>
 
-        {/* Rangée navigation : fond vert profond, comme la nav du site modèle */}
-        <nav className="hidden bg-primary-darker md:block">
+        {/* Nav en clair sous le bandeau vert, soulignement vert au survol */}
+        <nav className="hidden bg-paper md:block">
           <div className="mx-auto flex max-w-6xl gap-x-9 px-4 py-3.5 text-[0.95rem] font-bold uppercase tracking-wide">
             {NAV.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
-                className="text-white/85 underline-offset-8 decoration-accent hover:text-accent hover:underline hover:decoration-2"
+                className="text-ink-2 underline-offset-8 decoration-primary hover:text-primary hover:underline hover:decoration-2"
               >
                 {n.label}
               </Link>
