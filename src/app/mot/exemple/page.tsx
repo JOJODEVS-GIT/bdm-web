@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, PageBanner } from "@/components/site/chrome";
+import { BellPlus } from "lucide-react";
 
 export const metadata: Metadata = { title: "Mot-clé : Retour au pays" };
 
@@ -24,7 +25,7 @@ export default function MotClePage() {
         desc="Tous les contenus liés à ce mot-clé : articles, offres, événements, membres, adresses. Abonnez-vous pour recevoir chaque nouveauté par e-mail."
       >
         <button className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
-          🔔 Créer une alerte sur ce mot-clé
+          <BellPlus aria-hidden className="mr-1.5 inline h-4 w-4" /> Créer une alerte sur ce mot-clé
         </button>
       </PageBanner>
 

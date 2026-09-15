@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, SectionTitle, AdSlot, PageBanner } from "@/components/site/chrome";
+import { Compass, LibraryBig, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = { title: "Mémoire & racines" };
 
@@ -52,12 +53,12 @@ export default function MemoirePage() {
 
             <div className="grid gap-6 sm:grid-cols-3">
               {[
-                { t: "Itinéraires mémoriels", d: "2 parcours guidés : la Route de l'Esclave, les royaumes du Sud.", i: "🧭" },
-                { t: "Bibliothèque culturelle", d: "Livres, films, archives et articles pour comprendre l'histoire.", i: "📚" },
-                { t: "Guides pratiques", d: "Généalogie, visa, programme afro-descendants : 4 guides pas à pas.", i: "📘" },
+                { t: "Itinéraires mémoriels", d: "2 parcours guidés : la Route de l'Esclave, les royaumes du Sud.", i: Compass },
+                { t: "Bibliothèque culturelle", d: "Livres, films, archives et articles pour comprendre l'histoire.", i: LibraryBig },
+                { t: "Guides pratiques", d: "Généalogie, visa, programme afro-descendants : 4 guides pas à pas.", i: BookOpen },
               ].map((b) => (
                 <article key={b.t} className="border border-line p-5">
-                  <span className="text-2xl" aria-hidden>{b.i}</span>
+                  <b.i aria-hidden className="h-7 w-7 text-primary" strokeWidth={2.2} />
                   <h2 className="mt-2 font-display text-lg font-bold">{b.t}</h2>
                   <p className="mt-1 text-sm text-ink-2">{b.d}</p>
                   <Link href="#" className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline">Explorer →</Link>

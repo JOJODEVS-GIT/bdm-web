@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, AlertsBox, PageBanner, FilterBar } from "@/components/site/chrome";
+import { Star } from "lucide-react";
 
 export const metadata: Metadata = { title: "Bonnes adresses" };
 
@@ -56,7 +57,7 @@ export default function AdressesPage() {
                   <div className="relative aspect-[4/3] bg-paper-2">
                     {a.badge && (
                       <span className="absolute left-2 top-2 rounded bg-accent px-2 py-0.5 text-[0.65rem] font-bold uppercase text-ink">
-                        ★ Recommandé
+                        <Star aria-hidden className="mr-1 inline h-3 w-3 fill-current" /> Recommandé
                       </span>
                     )}
                   </div>

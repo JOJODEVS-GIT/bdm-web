@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, KeywordChips } from "@/components/site/chrome";
+import { CalendarPlus } from "lucide-react";
 
 export const metadata: Metadata = { title: "Pique-nique des Béninois d'Île-de-France" };
 
@@ -43,7 +44,7 @@ export default function EvenementPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="rounded bg-primary px-5 py-2.5 text-sm font-bold uppercase text-white hover:bg-primary-dark">📅 Ajouter à mon agenda</button>
+              <button className="rounded bg-primary px-5 py-2.5 text-sm font-bold uppercase text-white hover:bg-primary-dark"><CalendarPlus aria-hidden className="mr-1.5 inline h-4 w-4" /> Ajouter à mon agenda</button>
               <button className="rounded border-2 border-primary px-4 py-2 text-sm font-bold uppercase text-primary hover:bg-primary hover:text-white">Écrire à l&apos;organisateur</button>
               <button className="text-sm font-semibold text-ink-2 hover:text-primary">Partager</button>
             </div>

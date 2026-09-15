@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, SectionTitle, AdSlot, AlertsBox, PageBanner } from "@/components/site/chrome";
+import { BookOpen } from "lucide-react";
 
 export const metadata: Metadata = { title: "Retour au pays" };
 
@@ -59,7 +60,7 @@ export default function RetourPage() {
               <ul className="divide-y divide-line border border-line">
                 {GUIDES.map((g) => (
                   <li key={g} className="flex items-center gap-4 p-4 hover:bg-primary-faint">
-                    <span aria-hidden className="text-xl">📘</span>
+                    <BookOpen aria-hidden className="h-5 w-5 shrink-0 text-primary" strokeWidth={2.2} />
                     <p className="min-w-0 flex-1 font-bold leading-snug">
                       <Link href="/magazine/article-exemple" className="hover:text-primary">{g}</Link>
                     </p>

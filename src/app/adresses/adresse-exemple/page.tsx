@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, KeywordChips } from "@/components/site/chrome";
+import { Star } from "lucide-react";
 
 export const metadata: Metadata = { title: "Chez Maman Bénin — Restaurant, Paris 18e" };
 
@@ -27,7 +28,7 @@ export default function AdressePage() {
 
             <div className="mt-5 flex flex-wrap items-start gap-3">
               <div className="min-w-0 flex-1">
-                <span className="rounded bg-accent px-2 py-0.5 text-[0.65rem] font-bold uppercase text-ink">★ Recommandé</span>
+                <span className="rounded bg-accent px-2 py-0.5 text-[0.65rem] font-bold uppercase text-ink"><Star aria-hidden className="mr-1 inline h-3 w-3 fill-current" /> Recommandé</span>
                 <h1 className="font-display mt-2 text-3xl font-black leading-tight">Chez Maman Bénin</h1>
                 <p className="text-sm font-bold uppercase tracking-wide text-primary">Restaurant béninois</p>
                 <p className="card-location mt-1">12 rue exemple · Paris 18e · France</p>

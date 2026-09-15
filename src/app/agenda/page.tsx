@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, AlertsBox, PageBanner, FilterBar } from "@/components/site/chrome";
+import { CalendarPlus } from "lucide-react";
 
 export const metadata: Metadata = { title: "Agenda" };
 
@@ -27,7 +28,7 @@ export default function AgendaPage() {
           Annoncer un événement
         </Link>
         <button className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
-          📅 S&apos;abonner (iCal)
+          <CalendarPlus aria-hidden className="mr-1.5 inline h-4 w-4" /> S&apos;abonner (iCal)
         </button>
       </PageBanner>
       <FilterBar

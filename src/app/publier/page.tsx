@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot } from "@/components/site/chrome";
+import { PenLine, Briefcase, GraduationCap, CalendarDays, Megaphone, MapPin } from "lucide-react";
 
 export const metadata: Metadata = { title: "Publier sur Béninois du Monde" };
 
@@ -11,42 +12,42 @@ const TYPES = [
     key: "article",
     label: "Un article",
     desc: "Votre parcours, un portrait, une actu de votre communauté",
-    icon: "✍️",
+    icon: PenLine,
     active: false,
   },
   {
     key: "offre",
     label: "Une offre d'emploi",
     desc: "CDI, CDD, mission — 3 offres tests gratuites",
-    icon: "💼",
+    icon: Briefcase,
     active: true,
   },
   {
     key: "stage",
     label: "Un stage / volontariat",
     desc: "Toujours gratuit pour les structures",
-    icon: "🎓",
+    icon: GraduationCap,
     active: false,
   },
   {
     key: "evenement",
     label: "Un événement",
     desc: "Soirée, conférence, pique-nique, concert",
-    icon: "📅",
+    icon: CalendarDays,
     active: false,
   },
   {
     key: "annonce",
     label: "Une petite annonce",
     desc: "Logement, covoiturage, services, bonnes affaires",
-    icon: "📌",
+    icon: Megaphone,
     active: false,
   },
   {
     key: "adresse",
     label: "Une bonne adresse",
     desc: "Restaurant, commerce, service béninois près de chez vous",
-    icon: "📍",
+    icon: MapPin,
     active: false,
   },
 ];
@@ -100,9 +101,7 @@ export default function PublierPage() {
                   }`}
                   aria-pressed={t.active}
                 >
-                  <span className="text-2xl" aria-hidden>
-                    {t.icon}
-                  </span>
+                  <t.icon aria-hidden className="h-7 w-7 text-primary" strokeWidth={2.2} />
                   <span className="mt-2 block font-bold">{t.label}</span>
                   <span className="mt-1 block text-sm text-ink-2">{t.desc}</span>
                 </button>

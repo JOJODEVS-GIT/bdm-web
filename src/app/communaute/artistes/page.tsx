@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, PageBanner, FilterBar } from "@/components/site/chrome";
+import { CalendarDays } from "lucide-react";
 
 export const metadata: Metadata = { title: "Artistes & groupes" };
 
@@ -53,7 +54,7 @@ export default function ArtistesPage() {
                     <p className="card-location mt-1">{a.city}</p>
                     <p className="mt-1.5 text-sm text-ink-2">{a.disc}</p>
                     {a.next && (
-                      <p className="mt-2 rounded bg-accent-light px-2 py-1 text-xs font-bold text-ink">📅 {a.next}</p>
+                      <p className="mt-2 flex items-center gap-1.5 rounded bg-accent-light px-2 py-1 text-xs font-bold text-ink"><CalendarDays aria-hidden className="h-3.5 w-3.5 shrink-0" /> {a.next}</p>
                     )}
                   </div>
                 </article>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter } from "@/components/site/chrome";
+import { Bell } from "lucide-react";
 
 export const metadata: Metadata = { title: "Mon espace" };
 
@@ -64,7 +65,7 @@ export default function ComptePage() {
               <div className="flex flex-wrap gap-2">
                 {["BTP + Cotonou", "Retour au pays", "Événements Paris", "Marchés publics Bénin", "Concerts"].map((a) => (
                   <span key={a} className="flex items-center gap-2 rounded-full border border-primary px-3 py-1.5 text-sm font-semibold text-primary-dark">
-                    🔔 {a} <button aria-label={`Supprimer l'alerte ${a}`} className="text-muted hover:text-danger">✕</button>
+                    <Bell aria-hidden className="h-3.5 w-3.5" /> {a} <button aria-label={`Supprimer l'alerte ${a}`} className="text-muted hover:text-danger">✕</button>
                   </span>
                 ))}
               </div>

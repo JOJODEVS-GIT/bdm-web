@@ -63,14 +63,14 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
           </div>
         </div>
 
-        {/* Rangée navigation : séparée, espacée, lisible */}
-        <nav className="hidden border-t border-line md:block">
+        {/* Rangée navigation : fond vert profond, comme la nav du site modèle */}
+        <nav className="hidden bg-primary-darker md:block">
           <div className="mx-auto flex max-w-6xl gap-x-9 px-4 py-3.5 text-[0.95rem] font-bold uppercase tracking-wide">
             {NAV.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
-                className="text-ink-2 underline-offset-8 hover:text-primary hover:underline hover:decoration-2"
+                className="text-white/85 underline-offset-8 decoration-accent hover:text-accent hover:underline hover:decoration-2"
               >
                 {n.label}
               </Link>
