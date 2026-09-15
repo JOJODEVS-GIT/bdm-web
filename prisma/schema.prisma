@@ -1,0 +1,357 @@
+// Béninois du Monde — schéma v0 (draft, CDC §8)
+// Principe : un contenu = une entité générique Content, typée, géolocalisée, taguée.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  EDITOR
+  MODERATOR
+  ADMIN
+}
+
+enum AccountType {
+  MEMBER
+  COMPANY
+  ASSOCIATION
+  ARTIST
+}
+
+enum UserStatus {
+  PENDING_EMAIL
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum ContentType {
+  ARTICLE
+  MEMBER_ARTICLE
+  JOB
+  INTERNSHIP
+  EVENT
+  CLASSIFIED
+  PLACE
+  DEAL
+  HELP_REQUEST
+  MEMORY_PLACE
+}
+
+enum ContentStatus {
+  DRAFT
+  IN_MODERATION
+  SCHEDULED
+  PUBLISHED
+  REJECTED
+  EXPIRED
+  ARCHIVED
+}
+
+enum KeywordFamily {
+  SECTOR
+  PLACE
+  THEME
+}
+
+enum AlertFrequency {
+  INSTANT
+  DAILY
+}
+
+model User {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  passwordHash String?
+  role         Role        @default(USER)
+  accountType  AccountType @default(MEMBER)
+  status       UserStatus  @default(PENDING_EMAIL)
+  twoFactorSecret String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  profile      Profile?
+  alerts       Alert[]
+  applications Application[]
+  messagesSent Message[]     @relation("MessageFrom")
+  reports      Report[]
+  auditLogs    AuditLog[]
+}
+
+model Profile {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName    String
+  slug           String   @unique
+  photo          String?
+  bio            String?
+  country        String?
+  city           String?
+  lat            Float?
+  lng            Float?
+  website        String?
+  socials        Json?
+  visibility     Json? // par champ : public | members | private
+  cvUrl          String?
+  cvPublished    Boolean  @default(false)
+  publishedCount Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  company     CompanyDetails?
+  association AssociationDetails?
+  artist      ArtistDetails?
+  contents    Content[]           @relation("OwnerProfile")
+  keywords    ProfileKeyword[]
+  messages    Message[]           @relation("MessageTo")
+  partner     Partner?
+}
+
+model CompanyDetails {
+  profileId String  @id
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  size      String?
+  sector    String?
+}
+
+model AssociationDetails {
+  profileId    String  @id
+  profile      Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  purpose      String?
+  foundedYear  Int?
+  membersCount Int?
+}
+
+model ArtistDetails {
+  profileId  String  @id
+  profile    Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  discipline String?
+}
+
+model Content {
+  id             String        @id @default(cuid())
+  type           ContentType
+  title          String
+  slug           String        @unique
+  excerpt        String?
+  body           String?
+  cover          String?
+  country        String?
+  city           String?
+  lat            Float?
+  lng            Float?
+  status         ContentStatus @default(DRAFT)
+  publishedAt    DateTime?
+  expiresAt      DateTime?
+  featured       Boolean       @default(false)
+  sponsored      Boolean       @default(false)
+  views          Int           @default(0)
+  ownerProfileId String?
+  ownerProfile   Profile?      @relation("OwnerProfile", fields: [ownerProfileId], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  job          JobDetails?
+  event        EventDetails?
+  classified   ClassifiedDetails?
+  place        PlaceDetails?
+  deal         DealDetails?
+  keywords     ContentKeyword[]
+  applications Application[]
+  reports      Report[]
+
+  @@index([type, status, publishedAt])
+  @@index([country, city])
+}
+
+model JobDetails {
+  contentId    String  @id
+  content      Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  contractType String // CDI, CDD, stage, alternance, volontariat, freelance, mission
+  salary       String?
+  applyMode    String // link | relay_email | form
+  applyTarget  String?
+}
+
+model EventDetails {
+  contentId String   @id
+  content   Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  startsAt  DateTime
+  endsAt    DateTime?
+  isOnline  Boolean  @default(false)
+  venue     String?
+  ticketUrl String?
+  category  String?
+}
+
+model ClassifiedDetails {
+  contentId String  @id
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  category  String // auto-moto, bonnes-affaires, colocation, covoiturage, locations, services, rencontres
+  price     String?
+  photos    Json?
+}
+
+model PlaceDetails {
+  contentId String  @id
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  category  String
+  address   String?
+  phone     String?
+  hours     String?
+  verified  Boolean @default(false)
+}
+
+model DealDetails {
+  contentId String    @id
+  content   Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  promoCode String?
+  conditions String?
+  validFrom DateTime?
+  validTo   DateTime?
+  clicks    Int       @default(0)
+}
+
+model Keyword {
+  id       String        @id @default(cuid())
+  name     String
+  slug     String        @unique
+  family   KeywordFamily
+  parentId String?
+  parent   Keyword?      @relation("KeywordTree", fields: [parentId], references: [id])
+  children Keyword[]     @relation("KeywordTree")
+  contents ContentKeyword[]
+  profiles ProfileKeyword[]
+}
+
+model ContentKeyword {
+  contentId String
+  keywordId String
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  @@id([contentId, keywordId])
+}
+
+model ProfileKeyword {
+  profileId String
+  keywordId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, keywordId])
+}
+
+model Alert {
+  id           String         @id @default(cuid())
+  userId       String
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  keywordIds   Json
+  contentTypes Json
+  frequency    AlertFrequency @default(DAILY)
+  lastSentAt   DateTime?
+  createdAt    DateTime       @default(now())
+}
+
+model Application {
+  id        String   @id @default(cuid())
+  contentId String
+  content   Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cvUrl     String?
+  message   String?
+  status    String   @default("sent")
+  createdAt DateTime @default(now())
+
+  @@unique([contentId, userId])
+}
+
+model Message {
+  id          String   @id @default(cuid())
+  fromUserId  String
+  from        User     @relation("MessageFrom", fields: [fromUserId], references: [id])
+  toProfileId String
+  to          Profile  @relation("MessageTo", fields: [toProfileId], references: [id])
+  contentId   String?
+  body        String
+  status      String   @default("sent")
+  createdAt   DateTime @default(now())
+}
+
+model Report {
+  id         String   @id @default(cuid())
+  contentId  String?
+  content    Content? @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  reporterId String
+  reporter   User     @relation(fields: [reporterId], references: [id])
+  reason     String
+  status     String   @default("open")
+  createdAt  DateTime @default(now())
+}
+
+model Banner {
+  id          String    @id @default(cuid())
+  image       String
+  link        String
+  slot        String // top | side1 | side2 | mid | bottom | promo
+  startsAt    DateTime
+  endsAt      DateTime
+  weight      Int       @default(1)
+  impressions Int       @default(0)
+  clicks      Int       @default(0)
+}
+
+model Partner {
+  id        String   @id @default(cuid())
+  profileId String   @unique
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  type      String // rh | annonceur | avantages
+  plan      String?
+  startsAt  DateTime
+  endsAt    DateTime?
+}
+
+model Celebrity {
+  id     String  @id @default(cuid())
+  name   String
+  slug   String  @unique
+  photo  String?
+  domain String?
+  bio    String?
+  links  Json?
+}
+
+model NewsletterIssue {
+  id         String    @id @default(cuid())
+  subject    String
+  contentIds Json
+  sentAt     DateTime?
+  stats      Json?
+}
+
+model Subscriber {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  confirmedAt DateTime?
+  segments    Json?
+  createdAt   DateTime  @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  meta      Json?
+  createdAt DateTime @default(now())
+}
