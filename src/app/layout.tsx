@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Manrope } from "next/font/google";
+import { Public_Sans } from "next/font/google";
 import "./globals.css";
 
-/* Typo : Bricolage Grotesque (titres — grotesque chaleureuse et expressive)
-   + Manrope (texte — lisible, moderne, la police du site modèle RDM). */
+/* Typo « administrative » : Public Sans — la police officielle open source
+   du design system du gouvernement américain (USWDS), même esprit que la
+   Marianne de l'État français. Une seule famille = rendu institutionnel.
+   Graisses fortes (700/800) pour les titres, 400/600 pour le texte. */
 
-const display = Bricolage_Grotesque({
+const display = Public_Sans({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["700", "800"],
 });
 
-const body = Manrope({
+const body = Public_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {

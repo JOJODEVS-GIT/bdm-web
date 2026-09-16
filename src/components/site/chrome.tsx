@@ -162,19 +162,21 @@ const SITEMAP: { title: string; href: string; links: { label: string; href: stri
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 bg-primary-darker text-white">
-      <div className="w-full px-6 py-10">
-        {/* Rangée 1 : logo + réseaux | plan du site */}
-        <div className="grid gap-10 lg:grid-cols-[230px_minmax(0,1fr)]">
+    <footer className="mt-16 bg-primary-darker text-white">
+      <div className="w-full px-6 pb-10 pt-14 lg:px-10">
+        {/* Rangée 1 : identité | plan du site */}
+        <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16">
           <div>
             <Link href="/" className="inline-block">
-              <span className="font-display text-2xl font-extrabold leading-none">
+              <span className="font-display text-[1.6rem] font-extrabold leading-none">
                 Béninois<span className="text-accent"> du Monde</span>
+              </span>
+              <span className="mt-2 block text-[0.65rem] uppercase tracking-[0.25em] text-white/45">
+                Le réseau de la diaspora béninoise
               </span>
             </Link>
 
-            {/* Réseaux sociaux (liens à brancher sur les vrais comptes HCBE) */}
-            <ul className="mt-5 flex flex-wrap items-center gap-2.5">
+            <ul className="mt-7 flex items-center gap-3">
               {[
                 { icon: Fb, label: "Facebook" },
                 { icon: Li, label: "LinkedIn" },
@@ -186,81 +188,95 @@ export function SiteFooter() {
                   <a
                     href="#"
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded bg-white/10 hover:bg-accent hover:text-ink"
+                    className="flex h-10 w-10 items-center justify-center rounded-md bg-white/10 transition-colors hover:bg-accent hover:text-ink"
                   >
                     <s.icon />
                   </a>
                 </li>
               ))}
             </ul>
+
             <Link
-              href="/compte"
-              className="mt-3 inline-flex items-center gap-2 whitespace-nowrap rounded bg-accent px-3 py-2 text-xs font-bold uppercase tracking-wide text-ink hover:bg-accent-dark"
+              href="/compte/alertes"
+              className="mt-6 inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-accent px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-ink hover:bg-accent-dark"
             >
-              <Bell aria-hidden className="h-4 w-4" /> Mes alertes
+              <Bell aria-hidden className="h-4 w-4" /> Gérer mes alertes
             </Link>
           </div>
 
-          {/* Plan du site en colonnes, comme le modèle */}
           <nav
             aria-label="Plan du site"
-            className="hidden grid-cols-2 gap-x-8 gap-y-8 sm:grid md:grid-cols-4 xl:grid-cols-7"
+            className="hidden grid-cols-2 gap-x-10 gap-y-10 sm:grid md:grid-cols-4 xl:grid-cols-7"
           >
             {SITEMAP.map((col) => (
-              <ul key={col.title} className="space-y-2 text-sm">
-                <li>
-                  <Link href={col.href} className="whitespace-nowrap font-bold uppercase tracking-wide text-white hover:text-accent">
-                    {col.title}
-                  </Link>
-                </li>
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <Link href={l.href} className="whitespace-nowrap text-white/70 hover:text-accent">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div key={col.title}>
+                <Link
+                  href={col.href}
+                  className="inline-block whitespace-nowrap border-b-2 border-accent pb-1.5 text-[0.8rem] font-bold uppercase tracking-[0.12em] text-white hover:text-accent"
+                >
+                  {col.title}
+                </Link>
+                {col.links.length > 0 && (
+                  <ul className="mt-4 space-y-2.5 text-[0.9rem] leading-snug">
+                    {col.links.map((l) => (
+                      <li key={l.label}>
+                        <Link
+                          href={l.href}
+                          className="whitespace-nowrap text-white/65 transition-colors hover:text-accent"
+                        >
+                          {l.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ))}
           </nav>
         </div>
 
-        {/* Rangée 2 : partenaires | liens de bas de page */}
-        <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[230px_minmax(0,1fr)]">
+        {/* Séparateur */}
+        <div className="my-10 h-px w-full bg-white/10" />
+
+        {/* Rangée 2 : partenaires | liens institutionnels */}
+        <div className="grid items-start gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16">
           <div>
-            <ul className="flex flex-wrap items-center gap-2">
+            <ul className="flex flex-wrap items-center gap-2.5">
               {["HCBE", "RÉP. DU BÉNIN", "GOOGLE ACTUS"].map((p) => (
                 <li
                   key={p}
-                  className="flex h-12 w-[70px] items-center justify-center rounded bg-white/10 px-1 text-center text-[0.6rem] font-bold leading-tight text-white/70"
+                  className="flex h-11 w-[74px] items-center justify-center rounded-md border border-white/15 bg-white/5 px-1 text-center text-[0.58rem] font-bold leading-tight tracking-wide text-white/60"
                 >
                   {p}
                 </li>
               ))}
             </ul>
-            <p className="mt-3 text-xs leading-relaxed text-white/60">
+            <p className="mt-4 max-w-[280px] text-xs leading-relaxed text-white/45">
               Portail de la diaspora édité par le Haut Conseil des Béninois de l&apos;Extérieur.
             </p>
           </div>
 
-          <div className="flex flex-col justify-between gap-6">
-            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-sm font-semibold">
+          <div>
+            <ul className="flex flex-wrap gap-x-9 gap-y-3 text-[0.9rem] font-semibold">
               {[
                 { label: "Contact", href: "/contact" },
                 { label: "Annonceurs", href: "/annonceurs" },
+                { label: "Espace recruteur", href: "/emploi/recruteurs" },
+                { label: "Le HCBE", href: "/hcbe" },
+                { label: "Mentions légales", href: "/legal/mentions-legales" },
                 { label: "Confidentialité", href: "/legal/confidentialite" },
-                { label: "Infos légales", href: "/legal/mentions-legales" },
-                { label: "Accueil & hébergement", href: "/pratique/accueil" },
-                { label: "Notifications", href: "/compte" },
+                { label: "CGU", href: "/legal/cgu" },
               ].map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="whitespace-nowrap text-white/85 hover:text-accent">
+                  <Link href={l.href} className="whitespace-nowrap text-white/80 transition-colors hover:text-accent">
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-white/50">© 2026 Béninois du Monde — HCBE. Tous droits réservés.</p>
+            <p className="mt-6 text-xs tracking-wide text-white/40">
+              © 2026 Béninois du Monde — HCBE. Tous droits réservés.
+            </p>
           </div>
         </div>
       </div>
