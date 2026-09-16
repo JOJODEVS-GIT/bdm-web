@@ -1,90 +1,101 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { PageHead, StatCard, Card, Badge, TableShell, Th, Td } from "@/components/admin/ui";
 
-export const metadata: Metadata = { title: "Back-office — Modération" };
+export const metadata: Metadata = { title: "Tableau de bord" };
 
-/* MAQUETTE — Back-office rédaction/modération (CDC §7.17). Interface interne, chrome allégé. */
+/* MAQUETTE — Tableau de bord admin : l'état du site en un coup d'œil. */
 
-const FILES = [
-  { file: "Articles membres", n: 4 },
-  { file: "Offres d'emploi", n: 2 },
-  { file: "Événements", n: 3 },
-  { file: "Petites annonces", n: 6 },
-  { file: "Bonnes adresses", n: 1 },
-  { file: "Comptes pro à valider", n: 2 },
-  { file: "Signalements", n: 1, urgent: true },
+const A_TRAITER = [
+  { n: 19, l: "contenus en modération", href: "/admin/moderation", tone: "warn" as const },
+  { n: 1, l: "signalement urgent", href: "/admin/moderation", tone: "danger" as const },
+  { n: 2, l: "comptes pro à valider", href: "/admin/communaute", tone: "warn" as const },
+  { n: 3, l: "offres qui expirent sous 7 j", href: "/admin/emploi", tone: "default" as const },
 ];
 
-const ATTENTE = [
-  { type: "Article membre", t: "Mon premier Noël à Cotonou après 15 ans", by: "Élodie Z.", d: "il y a 2 h" },
-  { type: "Offre", t: "Ingénieur structures h/f — bureau d'études", by: "PME Fintech", d: "il y a 5 h" },
-  { type: "Annonce (rencontres)", t: "Femme 34 ans cherche relation sérieuse…", by: "Membre #1204", d: "hier", sensible: true },
-  { type: "Compte pro", t: "ASBL Racines Bénin — Bruxelles", by: "Inscription", d: "hier" },
+const ACTIVITE = [
+  { quoi: "Article membre soumis : « Mon premier Noël à Cotonou »", qui: "Élodie Z.", quand: "il y a 12 min", badge: "À modérer", tone: "yellow" as const },
+  { quoi: "Nouvelle inscription entreprise : BTP Horizon", qui: "Abidjan", quand: "il y a 41 min", badge: "Compte pro", tone: "blue" as const },
+  { quoi: "Offre validée : Comptable senior h/f", qui: "par Modératrice A.", quand: "il y a 1 h", badge: "Validé", tone: "green" as const },
+  { quoi: "Signalement sur une petite annonce (rencontres)", qui: "Membre #1204", quand: "il y a 2 h", badge: "Urgent", tone: "red" as const },
+  { quoi: "Newsletter de septembre programmée", qui: "par Rédaction", quand: "hier", badge: "Programmé", tone: "gray" as const },
 ];
 
-export default function AdminPage() {
+export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-paper-2">
-      {/* Barre admin */}
-      <header className="bg-ink text-white">
-        <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
-          <span className="font-display font-black">BDM <span className="text-accent">Admin</span></span>
-          <nav className="flex gap-5 text-sm font-semibold text-white/80">
-            {["Modération", "Rédaction", "Communauté", "Régie", "Newsletter", "Statistiques", "Paramètres"].map((n, i) => (
-              <Link key={n} href="/admin" className={i === 0 ? "text-accent" : "hover:text-accent"}>{n}</Link>
+    <>
+      <PageHead title="Tableau de bord" desc="Mardi 16 septembre 2026 — l'état du portail en un coup d'œil.">
+        <Link href="/admin/moderation" className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+          Traiter la modération
+        </Link>
+      </PageHead>
+
+      {/* À traiter */}
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {A_TRAITER.map((s) => (
+          <Link key={s.l} href={s.href}>
+            <StatCard label={s.l} value={String(s.n)} tone={s.tone} hint="Cliquer pour ouvrir" />
+          </Link>
+        ))}
+      </div>
+
+      {/* Chiffres du jour */}
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <StatCard label="Visites aujourd'hui" value="1 082" hint="+12 % vs hier — Plausible" />
+        <StatCard label="Nouveaux inscrits (7 j)" value="38" hint="dont 5 entreprises, 3 associations" />
+        <StatCard label="Contenus publiés (7 j)" value="46" hint="12 par la rédaction, 34 par la communauté" />
+        <StatCard label="Alertes envoyées ce matin" value="1 847" hint="taux d'ouverture 41 %" />
+      </div>
+
+      <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
+        {/* Activité récente */}
+        <Card title="Activité récente" action={<Link href="/admin/journal" className="text-xs font-bold uppercase text-primary hover:underline">Tout le journal →</Link>}>
+          <TableShell head={<><Th>Événement</Th><Th>Qui</Th><Th>Quand</Th><Th>Statut</Th></>}>
+            {ACTIVITE.map((a) => (
+              <tr key={a.quoi} className="hover:bg-primary-faint">
+                <Td className="font-semibold">{a.quoi}</Td>
+                <Td className="text-ink-2">{a.qui}</Td>
+                <Td className="whitespace-nowrap text-muted">{a.quand}</Td>
+                <Td><Badge tone={a.tone}>{a.badge}</Badge></Td>
+              </tr>
             ))}
-          </nav>
-          <span className="ml-auto text-xs text-white/60">Connecté : modération · <Link href="/" className="underline hover:text-accent">voir le site</Link></span>
-        </div>
-      </header>
+          </TableShell>
+        </Card>
 
-      <main className="mx-auto max-w-6xl px-4 py-8">
-        <h1 className="font-display text-2xl font-black">Files de modération</h1>
-        <p className="mt-1 text-sm text-ink-2">Objectif de traitement : 48 h ouvrées. La catégorie « rencontres » et les premiers contenus d&apos;un compte passent toujours en validation a priori.</p>
-
-        <div className="mt-5 grid gap-3 sm:grid-cols-4 xl:grid-cols-7">
-          {FILES.map((f) => (
-            <button key={f.file} className={`border p-3 text-left ${f.urgent ? "border-danger bg-danger-light" : "border-line bg-paper hover:border-primary"}`}>
-              <span className={`font-display text-2xl font-black ${f.urgent ? "text-danger" : "text-primary"}`}>{f.n}</span>
-              <p className="text-xs font-semibold leading-tight text-ink-2">{f.file}</p>
-            </button>
-          ))}
-        </div>
-
-        <section className="mt-8 border border-line bg-paper">
-          <div className="flex items-center gap-3 border-b border-line bg-paper-2 px-4 py-3">
-            <h2 className="font-bold">En attente ({ATTENTE.length})</h2>
-            <span className="ml-auto text-xs text-muted">tri : plus ancien d&apos;abord</span>
-          </div>
-          <ul className="divide-y divide-line">
-            {ATTENTE.map((a) => (
-              <li key={a.t} className="flex flex-wrap items-center gap-3 px-4 py-3">
-                <span className={`rounded px-2 py-0.5 text-xs font-bold uppercase ${a.sensible ? "bg-danger-light text-danger" : "bg-primary-light text-primary-dark"}`}>{a.type}</span>
-                <p className="min-w-0 flex-1 truncate font-semibold">{a.t}</p>
-                <span className="text-xs text-muted">{a.by} · {a.d}</span>
-                <div className="flex gap-2">
-                  <button className="rounded bg-primary px-3 py-1.5 text-xs font-bold text-white hover:bg-primary-dark">Valider</button>
-                  <button className="rounded border border-line px-3 py-1.5 text-xs font-bold text-ink-2 hover:border-primary hover:text-primary">Voir</button>
-                  <button className="rounded border border-danger px-3 py-1.5 text-xs font-bold text-danger hover:bg-danger hover:text-white">Refuser</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-8 grid gap-4 sm:grid-cols-3">
-          {[
-            { t: "Publiés aujourd'hui", n: "12" },
-            { t: "Alertes envoyées ce matin", n: "1 847" },
-            { t: "Nouveaux inscrits (7 j)", n: "38" },
-          ].map((s) => (
-            <div key={s.t} className="border border-line bg-paper p-4">
-              <span className="font-display text-3xl font-black text-primary">{s.n}</span>
-              <p className="text-sm text-ink-2">{s.t}</p>
+        {/* Raccourcis */}
+        <div className="space-y-4">
+          <Card title="Raccourcis">
+            <div className="grid gap-2 p-4">
+              {[
+                { l: "Écrire un article", href: "/admin/redaction" },
+                { l: "Composer la newsletter", href: "/admin/newsletter" },
+                { l: "Ajouter une bannière pub", href: "/admin/regie" },
+                { l: "Importer des associations (CSV)", href: "/admin/communaute" },
+              ].map((r) => (
+                <Link key={r.l} href={r.href} className="rounded border border-line px-3 py-2 text-sm font-semibold text-ink-2 hover:border-primary hover:text-primary">
+                  {r.l} →
+                </Link>
+              ))}
             </div>
-          ))}
-        </section>
-      </main>
-    </div>
+          </Card>
+          <Card title="Objectifs de lancement (CDC §13)">
+            <ul className="space-y-2.5 p-4 text-sm">
+              {[
+                { l: "Articles rédaction", v: "12 / 40" },
+                { l: "Béninois qui comptent", v: "8 / 50" },
+                { l: "Associations pré-créées", v: "23 / 150" },
+                { l: "Bonnes adresses", v: "31 / 200" },
+                { l: "Offres réelles", v: "7 / 50" },
+              ].map((o) => (
+                <li key={o.l} className="flex items-center justify-between gap-3">
+                  <span className="text-ink-2">{o.l}</span>
+                  <span className="font-bold tabular-nums">{o.v}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </div>
+    </>
   );
 }
