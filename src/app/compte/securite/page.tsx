@@ -36,7 +36,7 @@ export default function SecuritePage() {
           <p className="font-bold">Double authentification (2FA)</p>
           <p className="text-sm text-ink-2">Un code depuis votre application d&apos;authentification à chaque connexion. Recommandé.</p>
         </div>
-        <button className="rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">Activer</button>
+        <button className="whitespace-nowrap rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">Activer</button>
       </div>
 
       <div className="border border-line">

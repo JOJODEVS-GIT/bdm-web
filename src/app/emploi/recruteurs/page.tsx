@@ -15,7 +15,7 @@ export default function RecruteursPage() {
         em="recruteur"
         desc="Recrutez au Bénin et dans la diaspora : publiez gratuitement vos premières offres, passez partenaire RH pour la CVthèque et la visibilité."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Publier une offre (3 tests gratuits)
         </Link>
       </PageBanner>

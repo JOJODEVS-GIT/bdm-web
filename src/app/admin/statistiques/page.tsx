@@ -9,7 +9,7 @@ export default function AdminStatsPage() {
   return (
     <>
       <PageHead title="Statistiques" desc="Audience (Plausible), contenus, alertes — et l'export mensuel pour le rapport HCBE.">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           Exporter le rapport du mois (PDF)
         </button>
       </PageHead>

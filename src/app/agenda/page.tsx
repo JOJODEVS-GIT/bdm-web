@@ -24,10 +24,10 @@ export default function AgendaPage() {
         em="à venir"
         desc="Soirées, concerts, conférences, pique-niques de la diaspora béninoise. Publiés par les associations, les artistes et les membres."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Annoncer un événement
         </Link>
-        <button className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
+        <button className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
           <CalendarPlus aria-hidden className="mr-1.5 inline h-4 w-4" /> S&apos;abonner (iCal)
         </button>
       </PageBanner>

@@ -112,7 +112,7 @@ export default function OffrePage() {
               <p className="mt-2 text-sm font-bold">PME Fintech</p>
               <p className="text-sm text-ink-2">Paiement digital · 45 salariés · Cotonou</p>
               <p className="mt-1 text-xs text-muted">3 offres en ligne · membre depuis 2026</p>
-              <Link href="/communaute/entreprises" className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline">
+              <Link href="/communaute/entreprises" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
                 Voir la fiche entreprise →
               </Link>
             </div>

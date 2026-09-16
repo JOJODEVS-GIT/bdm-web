@@ -15,7 +15,7 @@ export default function AdminNewsletterPage() {
   return (
     <>
       <PageHead title="Newsletter & alertes" desc="Campagnes Brevo et supervision des alertes par mots-clés (Resend).">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           + Composer la newsletter
         </button>
       </PageHead>

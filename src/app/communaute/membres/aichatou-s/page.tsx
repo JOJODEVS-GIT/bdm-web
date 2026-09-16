@@ -69,10 +69,10 @@ export default function ProfilPage() {
               </div>
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">
-              <button className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+              <button className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
                 Écrire à Aïchatou
               </button>
-              <button className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold hover:border-accent hover:text-accent">
+              <button className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold hover:border-accent hover:text-accent">
                 Suivre
               </button>
             </div>
@@ -174,7 +174,7 @@ export default function ProfilPage() {
               </p>
               <Link
                 href="/publier"
-                className="mt-3 inline-block rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark"
+                className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark"
               >
                 Créer mon profil
               </Link>

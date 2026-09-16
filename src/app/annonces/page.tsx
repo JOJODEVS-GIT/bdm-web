@@ -26,10 +26,10 @@ export default function AnnoncesPage() {
         em="annonces"
         desc="Entre membres : bonnes affaires, logement, covoiturage, services. Dépôt gratuit, réponse réservée aux inscrits, annonces valables 60 jours."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Déposer une annonce
         </Link>
-        <Link href="/pratique/chercher-trouver" className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
+        <Link href="/pratique/chercher-trouver" className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
           Je cherche / je propose
         </Link>
       </PageBanner>

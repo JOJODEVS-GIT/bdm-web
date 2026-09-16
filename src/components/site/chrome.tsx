@@ -71,7 +71,7 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
               <Link
                 key={n.href}
                 href={n.href}
-                className="text-ink-2 underline-offset-8 decoration-primary hover:text-primary hover:underline hover:decoration-2"
+                className="whitespace-nowrap text-ink-2 underline-offset-8 decoration-primary hover:text-primary hover:underline hover:decoration-2"
               >
                 {n.label}
               </Link>
@@ -195,7 +195,7 @@ export function SiteFooter() {
             </ul>
             <Link
               href="/compte"
-              className="mt-3 inline-flex items-center gap-2 rounded bg-accent px-3 py-2 text-xs font-bold uppercase tracking-wide text-ink hover:bg-accent-dark"
+              className="mt-3 inline-flex items-center gap-2 whitespace-nowrap rounded bg-accent px-3 py-2 text-xs font-bold uppercase tracking-wide text-ink hover:bg-accent-dark"
             >
               <Bell aria-hidden className="h-4 w-4" /> Mes alertes
             </Link>
@@ -209,13 +209,13 @@ export function SiteFooter() {
             {SITEMAP.map((col) => (
               <ul key={col.title} className="space-y-2 text-sm">
                 <li>
-                  <Link href={col.href} className="font-bold uppercase tracking-wide text-white hover:text-accent">
+                  <Link href={col.href} className="whitespace-nowrap font-bold uppercase tracking-wide text-white hover:text-accent">
                     {col.title}
                   </Link>
                 </li>
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className="text-white/70 hover:text-accent">
+                    <Link href={l.href} className="whitespace-nowrap text-white/70 hover:text-accent">
                       {l.label}
                     </Link>
                   </li>
@@ -254,7 +254,7 @@ export function SiteFooter() {
                 { label: "Notifications", href: "/compte" },
               ].map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/85 hover:text-accent">
+                  <Link href={l.href} className="whitespace-nowrap text-white/85 hover:text-accent">
                     {l.label}
                   </Link>
                 </li>
@@ -276,7 +276,7 @@ export function SectionTitle({ pre, em, href }: { pre: string; em: string; href?
         {pre} <em>{em}</em>
       </h2>
       {href && (
-        <Link href={href} className="text-sm font-semibold text-primary hover:underline">
+        <Link href={href} className="whitespace-nowrap text-sm font-semibold text-primary hover:underline">
           Tout voir →
         </Link>
       )}
@@ -386,10 +386,10 @@ export function FilterBar({
             ))}
           </select>
         ))}
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           Rechercher
         </button>
-        <button className="ml-auto text-sm font-bold uppercase text-primary hover:underline">
+        <button className="ml-auto whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
           Voir sur la carte
         </button>
       </div>

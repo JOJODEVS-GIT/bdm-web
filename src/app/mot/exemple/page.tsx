@@ -24,7 +24,7 @@ export default function MotClePage() {
         em="retour au pays"
         desc="Tous les contenus liés à ce mot-clé : articles, offres, événements, membres, adresses. Abonnez-vous pour recevoir chaque nouveauté par e-mail."
       >
-        <button className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <button className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           <BellPlus aria-hidden className="mr-1.5 inline h-4 w-4" /> Créer une alerte sur ce mot-clé
         </button>
       </PageBanner>

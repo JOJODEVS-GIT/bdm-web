@@ -17,7 +17,7 @@ export default function RedactionPage() {
   return (
     <>
       <PageHead title="Rédaction" desc="Articles, mise à la une, rubriques, Béninois qui comptent, médiathèque.">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           + Écrire un article
         </button>
         <button className="rounded border border-line bg-paper px-4 py-2 text-sm font-bold text-ink-2 hover:border-primary hover:text-primary">

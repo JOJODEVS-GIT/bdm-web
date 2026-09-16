@@ -25,7 +25,7 @@ export default function AdminDashboard() {
   return (
     <>
       <PageHead title="Tableau de bord" desc="Mardi 16 septembre 2026 — l'état du portail en un coup d'œil.">
-        <Link href="/admin/moderation" className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <Link href="/admin/moderation" className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           Traiter la modération
         </Link>
       </PageHead>

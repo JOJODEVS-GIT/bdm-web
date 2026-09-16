@@ -22,7 +22,7 @@ export default function CommunautePage() {
         em="communauté"
         desc="Membres, entreprises, associations, artistes : quatre annuaires alimentés par les inscrits eux-mêmes. Inscription gratuite, publication directe."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Créer mon profil gratuit
         </Link>
       </PageBanner>
@@ -83,7 +83,7 @@ export default function CommunautePage() {
             <div className="border-2 border-primary bg-primary-faint p-4 text-center">
               <p className="font-display text-lg font-bold">Inscrivez-vous, publiez</p>
               <p className="mt-1 text-sm text-ink-2">Profil gratuit, visibilité mondiale, publication directe de vos contenus.</p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Je m&apos;inscris
               </Link>
             </div>

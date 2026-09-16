@@ -33,8 +33,8 @@ export default function AdressePage() {
                 <p className="text-sm font-bold uppercase tracking-wide text-primary">Restaurant béninois</p>
                 <p className="card-location mt-1">12 rue exemple · Paris 18e · France</p>
               </div>
-              <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">Itinéraire</button>
-              <button className="rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">Appeler</button>
+              <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">Itinéraire</button>
+              <button className="whitespace-nowrap rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">Appeler</button>
             </div>
 
             <p className="mt-5 max-w-2xl leading-relaxed">

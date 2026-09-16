@@ -62,7 +62,7 @@ export default function CelebritesPage() {
               <p className="mt-2 text-sm text-ink-2">
                 Un Béninois fait rayonner le pays et manque à la liste ? Proposez sa fiche, la rédaction vérifie et publie.
               </p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Proposer
               </Link>
             </div>

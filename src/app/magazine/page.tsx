@@ -99,7 +99,7 @@ export default function MagazinePage() {
             <div className="border-2 border-primary p-4 text-center">
               <p className="font-display text-lg font-bold">Racontez votre histoire</p>
               <p className="mt-1 text-sm text-ink-2">Les membres publient leurs articles, relus par la rédaction.</p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Proposer un article
               </Link>
             </div>

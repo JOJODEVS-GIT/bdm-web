@@ -27,7 +27,7 @@ export default function AdressesPage() {
         em="adresses"
         desc="Restaurants, commerces, services béninois dans le monde entier. Proposées par la communauté, vérifiées par la rédaction."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Proposer une adresse
         </Link>
       </PageBanner>

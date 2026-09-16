@@ -91,13 +91,13 @@ export default function EmploiPage() {
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               href="/publier"
-              className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark"
+              className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark"
             >
               Déposer une offre
             </Link>
             <Link
               href="/emploi/recruteurs"
-              className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent"
+              className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent"
             >
               Espace recruteur
             </Link>
@@ -127,7 +127,7 @@ export default function EmploiPage() {
             <option>Éducation</option>
             <option>Agriculture</option>
           </select>
-          <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+          <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
             Rechercher
           </button>
           <button className="ml-auto text-sm font-bold uppercase text-primary hover:underline">
@@ -227,7 +227,7 @@ export default function EmploiPage() {
               </p>
               <Link
                 href="/emploi/recruteurs"
-                className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline"
+                className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline"
               >
                 Nous consulter →
               </Link>

@@ -25,7 +25,7 @@ export default function ProfilComptePage() {
             Vous choisissez, champ par champ, ce qui est visible de tous, des membres connectés, ou de personne.
           </p>
         </div>
-        <Link href="/communaute/membres/aichatou-s" className="rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
+        <Link href="/communaute/membres/aichatou-s" className="whitespace-nowrap rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
           Voir mon profil comme visiteur
         </Link>
       </div>

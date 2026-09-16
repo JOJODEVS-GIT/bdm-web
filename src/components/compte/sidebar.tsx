@@ -48,7 +48,7 @@ export function CompteSidebar() {
             <Link
               key={m.href}
               href={m.href}
-              className={`mb-0.5 flex items-center gap-2.5 rounded px-3 py-2 font-semibold ${
+              className={`mb-0.5 flex items-center gap-2.5 whitespace-nowrap rounded px-3 py-2 font-semibold ${
                 active ? "bg-primary text-white" : "text-ink-2 hover:bg-primary-faint hover:text-primary"
               }`}
             >

@@ -24,10 +24,10 @@ export default function EntreprisesPage() {
         em="entreprises"
         desc="Les entreprises béninoises et de la diaspora : elles se présentent, publient leurs actualités et recrutent directement sur le site."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Inscrire mon entreprise
         </Link>
-        <Link href="/emploi/recruteurs" className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
+        <Link href="/emploi/recruteurs" className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
           Espace recruteur
         </Link>
       </PageBanner>
@@ -77,7 +77,7 @@ export default function EntreprisesPage() {
             <div className="border border-line bg-paper-2 p-4">
               <h3 className="section-title text-sm">Recruter <em>ici</em></h3>
               <p className="mt-2 text-sm text-ink-2">3 offres tests gratuites, stages illimités. Partenaire RH pour la CVthèque et la mise en avant.</p>
-              <Link href="/emploi/recruteurs" className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline">
+              <Link href="/emploi/recruteurs" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
                 Découvrir →
               </Link>
             </div>

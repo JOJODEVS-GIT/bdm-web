@@ -42,7 +42,7 @@ export default function AlertesPage() {
             <option>Quotidien (7h)</option>
             <option>Immédiat</option>
           </select>
-          <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+          <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
             <Bell aria-hidden className="mr-1.5 inline h-4 w-4" /> Créer
           </button>
         </div>

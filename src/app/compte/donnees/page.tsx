@@ -37,7 +37,7 @@ export default function DonneesPage() {
           <p className="font-bold">Exporter mes données</p>
           <p className="text-sm text-ink-2">Profil, publications, candidatures, messages : un fichier ZIP (JSON + PDF) envoyé par e-mail.</p>
         </div>
-        <button className="rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
+        <button className="whitespace-nowrap rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
           <Download aria-hidden className="mr-1.5 inline h-4 w-4" /> Demander l&apos;export
         </button>
       </div>

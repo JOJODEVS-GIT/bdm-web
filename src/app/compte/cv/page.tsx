@@ -20,7 +20,7 @@ export default function CvPage() {
           <p className="font-bold">cv-aichatou-2026.pdf</p>
           <p className="text-xs text-muted">Ajouté le 12 août · 240 Ko</p>
         </div>
-        <button className="rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
+        <button className="whitespace-nowrap rounded border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">
           <Upload aria-hidden className="mr-1.5 inline h-4 w-4" /> Remplacer
         </button>
         <button className="text-sm font-bold text-danger hover:underline">Supprimer</button>

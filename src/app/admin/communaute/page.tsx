@@ -18,7 +18,7 @@ export default function AdminCommunautePage() {
   return (
     <>
       <PageHead title="Communauté" desc="Les 4 annuaires, rôles, doublons, bannissements et imports.">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           Importer des fiches (CSV)
         </button>
         <button className="rounded border border-line bg-paper px-4 py-2 text-sm font-bold text-ink-2 hover:border-primary hover:text-primary">

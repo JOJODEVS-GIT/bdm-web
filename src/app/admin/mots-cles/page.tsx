@@ -19,7 +19,7 @@ export default function AdminMotsClesPage() {
   return (
     <>
       <PageHead title="Mots-clés" desc="Le référentiel qui relie tout : contenus, profils, alertes, pages /mot/.">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           + Nouveau mot-clé
         </button>
         <button className="rounded border border-line bg-paper px-4 py-2 text-sm font-bold text-ink-2 hover:border-primary hover:text-primary">

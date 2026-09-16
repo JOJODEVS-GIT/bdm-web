@@ -23,7 +23,7 @@ export default function AdminEmploiPage() {
   return (
     <>
       <PageHead title="Emploi" desc="Offres, candidatures, recruteurs et partenaires RH.">
-        <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           + Créer une offre
         </button>
       </PageHead>

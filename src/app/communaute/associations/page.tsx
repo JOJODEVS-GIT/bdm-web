@@ -24,7 +24,7 @@ export default function AssociationsPage() {
         em="associations"
         desc="Les associations béninoises actives dans le monde : culturelles, étudiantes, sportives, humanitaires. Chaque association gère sa fiche et publie ses événements."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Référencer mon association
         </Link>
       </PageBanner>
@@ -75,7 +75,7 @@ export default function AssociationsPage() {
               <p className="mt-2 text-sm text-ink-2">
                 Créez sa fiche gratuitement : elle apparaît dans l&apos;annuaire et sur la carte, et vous publiez vos événements directement.
               </p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Référencer
               </Link>
             </div>

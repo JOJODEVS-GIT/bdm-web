@@ -88,7 +88,7 @@ export default function ModerationPage() {
                 className="w-full max-w-2xl rounded border border-line bg-paper px-3 py-2 text-sm focus:border-primary focus:outline-none"
               />
               <div className="mt-3 flex flex-wrap gap-2">
-                <button className="rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+                <button className="whitespace-nowrap rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                   ✓ Valider et publier
                 </button>
                 <button className="rounded border border-line px-4 py-2 text-sm font-bold text-ink-2 hover:border-primary hover:text-primary">

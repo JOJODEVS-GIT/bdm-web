@@ -67,6 +67,10 @@
   --font-display: var(--font-display), "Avenir Next", "Helvetica Neue", sans-serif;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   background: var(--paper);
   color: var(--ink);

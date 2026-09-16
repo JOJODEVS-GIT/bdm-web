@@ -25,7 +25,7 @@ export default function ArtistesPage() {
         em="groupes"
         desc="Musiciens, danseurs, plasticiens, humoristes de la scène béninoise mondiale. Chaque artiste gère sa fiche et son agenda de dates. (* fiches d'exemple)"
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Créer ma fiche artiste
         </Link>
       </PageBanner>
@@ -69,7 +69,7 @@ export default function ArtistesPage() {
             <div className="border-2 border-primary p-4">
               <h3 className="section-title text-sm">Vous êtes <em>artiste ?</em></h3>
               <p className="mt-2 text-sm text-ink-2">Fiche gratuite, agenda de vos dates, vos concerts dans l&apos;agenda du site et les alertes des fans.</p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Créer ma fiche
               </Link>
             </div>

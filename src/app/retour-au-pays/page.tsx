@@ -29,10 +29,10 @@ export default function RetourPage() {
         em="retour au pays"
         desc="Témoignages de ceux qui l'ont fait, guides pratiques et offres d'emploi au Bénin : tout pour préparer un retour réussi."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Raconter mon retour
         </Link>
-        <Link href="/emploi" className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
+        <Link href="/emploi" className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
           Voir les offres au Bénin
         </Link>
       </PageBanner>
@@ -100,7 +100,7 @@ export default function RetourPage() {
               <p className="mt-2 text-sm text-ink-2">
                 Services consulaires, installation, investissement : les ressources officielles pour votre retour.
               </p>
-              <Link href="/hcbe" className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline">
+              <Link href="/hcbe" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
                 Voir les services →
               </Link>
             </div>

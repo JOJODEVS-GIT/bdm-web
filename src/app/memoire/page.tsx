@@ -23,7 +23,7 @@ export default function MemoirePage() {
         em="racines"
         desc="Pour les afro-descendants en quête d'origines et tous les Béninois : lieux de mémoire, itinéraires, bibliothèque culturelle et guides pratiques. Contenus validés historiquement."
       >
-        <Link href="/adresses" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/adresses" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Professionnels vérifiés (généalogie)
         </Link>
       </PageBanner>
@@ -61,7 +61,7 @@ export default function MemoirePage() {
                   <b.i aria-hidden className="h-7 w-7 text-primary" strokeWidth={2.2} />
                   <h2 className="mt-2 font-display text-lg font-bold">{b.t}</h2>
                   <p className="mt-1 text-sm text-ink-2">{b.d}</p>
-                  <Link href="#" className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline">Explorer →</Link>
+                  <Link href="#" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">Explorer →</Link>
                 </article>
               ))}
             </div>

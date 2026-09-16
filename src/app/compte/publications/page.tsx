@@ -20,7 +20,7 @@ export default function PublicationsPage() {
           <h1 className="font-display text-2xl font-extrabold">Mes publications</h1>
           <p className="mt-1 text-sm text-ink-2">Tout ce que vous avez publié, avec son statut et ses vues.</p>
         </div>
-        <Link href="/publier" className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
           + Publier
         </Link>
       </div>

@@ -21,10 +21,10 @@ export default function AccueilHebergementPage() {
         em="hébergement"
         desc="Des familles de la communauté accueillent : étudiants béninois qui arrivent à l'étranger, visiteurs et afro-descendants au Bénin. Mise en relation modérée, gratuite entre membres."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Devenir famille d&apos;accueil
         </Link>
-        <button className="rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
+        <button className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
           Chercher un accueil
         </button>
       </PageBanner>
@@ -74,7 +74,7 @@ export default function AccueilHebergementPage() {
             <div className="border-2 border-primary p-4">
               <h3 className="section-title text-sm">Vous partez <em>étudier ?</em></h3>
               <p className="mt-2 text-sm text-ink-2">Créez votre compte et publiez votre recherche d&apos;accueil : les familles de votre ville de destination seront alertées.</p>
-              <Link href="/publier" className="mt-3 inline-block rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">Publier ma recherche</Link>
+              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">Publier ma recherche</Link>
             </div>
             <AdSlot label="pavé latéral" />
           </aside>

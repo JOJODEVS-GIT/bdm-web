@@ -281,7 +281,7 @@ export default function PublierPage() {
               </p>
               <Link
                 href="/emploi/recruteurs"
-                className="mt-3 inline-block text-sm font-bold uppercase text-primary hover:underline"
+                className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline"
               >
                 Découvrir →
               </Link>

@@ -61,7 +61,7 @@ export default function MembresPage() {
             <option>Finance</option>
             <option>BTP</option>
           </select>
-          <button className="rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+          <button className="whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
             Rechercher
           </button>
           <button className="ml-auto text-sm font-bold uppercase text-primary hover:underline">
@@ -146,7 +146,7 @@ export default function MembresPage() {
               </p>
               <Link
                 href="/publier"
-                className="mt-3 inline-block rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark"
+                className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-primary-dark"
               >
                 Je m&apos;inscris
               </Link>

@@ -22,7 +22,7 @@ export default function ChercherTrouverPage() {
         em="trouver"
         desc="Le mur d'entraide de la communauté : je cherche, je propose. Réponses entre membres, par messagerie relais."
       >
-        <Link href="/publier" className="rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Publier une demande
         </Link>
       </PageBanner>
