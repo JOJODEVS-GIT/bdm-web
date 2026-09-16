@@ -40,9 +40,9 @@ export default function AssociationsPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div>
             <p className="mb-5 text-sm text-muted"><strong className="text-ink">152</strong> associations</p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {ASSOS.map((a) => (
-                <article key={a.name} className="border border-line p-4 hover:border-primary hover:bg-primary-faint">
+                <article key={a.name} className="flex h-full flex-col border border-line p-4 hover:border-primary hover:bg-primary-faint">
                   <div className="flex items-center gap-3">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-paper-2 text-xs font-bold text-muted">LOGO</div>
                     <div className="min-w-0">
@@ -58,7 +58,9 @@ export default function AssociationsPage() {
                     ))}
                     <span className="ml-auto text-xs text-muted">Depuis {a.since}</span>
                   </div>
-                  {a.pub > 0 && <p className="mt-2 text-xs text-muted">{a.pub} contenu{a.pub > 1 ? "s" : ""} publié{a.pub > 1 ? "s" : ""}</p>}
+                  <p className="mt-auto pt-2 text-xs text-muted">
+                    {a.pub > 0 ? `${a.pub} contenu${a.pub > 1 ? "s" : ""} publié${a.pub > 1 ? "s" : ""}` : "Aucun contenu publié"}
+                  </p>
                 </article>
               ))}
             </div>

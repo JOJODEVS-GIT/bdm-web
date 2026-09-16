@@ -43,9 +43,9 @@ export default function EntreprisesPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div>
             <p className="mb-5 text-sm text-muted"><strong className="text-ink">87</strong> entreprises</p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {ENTREPRISES.map((e) => (
-                <article key={e.name} className="border border-line p-4 hover:border-primary hover:bg-primary-faint">
+                <article key={e.name} className="flex h-full flex-col border border-line p-4 hover:border-primary hover:bg-primary-faint">
                   <div className="flex items-center gap-3">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-paper-2 text-xs font-bold text-muted">LOGO</div>
                     <div className="min-w-0">
@@ -56,13 +56,15 @@ export default function EntreprisesPage() {
                     </div>
                   </div>
                   <p className="mt-3 text-sm text-ink-2">{e.sector} · {e.size}</p>
-                  {e.offres > 0 && (
-                    <p className="mt-2">
+                  <p className="mt-auto pt-2">
+                    {e.offres > 0 ? (
                       <Link href="/emploi" className="text-xs font-bold uppercase text-primary hover:underline">
                         {e.offres} offre{e.offres > 1 ? "s" : ""} en cours →
                       </Link>
-                    </p>
-                  )}
+                    ) : (
+                      <span className="text-xs text-muted">Aucune offre en cours</span>
+                    )}
+                  </p>
                 </article>
               ))}
             </div>
