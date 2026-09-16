@@ -71,6 +71,10 @@ html {
   scrollbar-gutter: stable;
 }
 
+main {
+  width: 100%;
+}
+
 body {
   background: var(--paper);
   color: var(--ink);

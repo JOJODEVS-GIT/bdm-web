@@ -20,7 +20,7 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
       <header className="border-b border-line">
         {/* Style A « Institutionnel inversé » : rangée haute en vert profond */}
         <div className="bg-primary-darker text-white">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-6">
+          <div className="flex w-full items-center justify-between gap-6 px-6 py-6">
             <Link href="/" className="shrink-0">
               <span className="font-display text-3xl font-extrabold leading-none">
                 Béninois<span className="text-accent"> du Monde</span>
@@ -66,7 +66,7 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
 
         {/* Nav en clair sous le bandeau vert, soulignement vert au survol */}
         <nav className="hidden bg-paper md:block">
-          <div className="mx-auto flex max-w-6xl gap-x-9 px-4 py-3.5 text-[0.95rem] font-bold uppercase tracking-wide">
+          <div className="flex w-full gap-x-9 px-6 py-3.5 text-[0.95rem] font-bold uppercase tracking-wide">
             {NAV.map((n) => (
               <Link
                 key={n.href}
@@ -163,7 +163,7 @@ const SITEMAP: { title: string; href: string; links: { label: string; href: stri
 export function SiteFooter() {
   return (
     <footer className="mt-12 bg-primary-darker text-white">
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="w-full px-6 py-10">
         {/* Rangée 1 : logo + réseaux | plan du site */}
         <div className="grid gap-10 lg:grid-cols-[230px_minmax(0,1fr)]">
           <div>
