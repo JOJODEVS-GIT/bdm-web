@@ -49,7 +49,7 @@ export default function AdminDashboard() {
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
         {/* Activité récente */}
-        <Card title="Activité récente" action={<Link href="/admin/journal" className="text-xs font-bold uppercase text-primary hover:underline">Tout le journal →</Link>}>
+        <Card title="Activité récente" action={<Link href="/admin/journal" className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Tout le journal →</Link>}>
           <TableShell head={<><Th>Événement</Th><Th>Qui</Th><Th>Quand</Th><Th>Statut</Th></>}>
             {ACTIVITE.map((a) => (
               <tr key={a.quoi} className="hover:bg-primary-faint">

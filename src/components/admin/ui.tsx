@@ -101,7 +101,7 @@ export function Badge({
     blue: "bg-primary-light text-primary-dark",
   } as const;
   return (
-    <span className={`rounded px-2 py-0.5 text-xs font-bold ${tones[tone]}`}>{children}</span>
+    <span className={`whitespace-nowrap rounded px-2 py-0.5 text-xs font-bold ${tones[tone]}`}>{children}</span>
   );
 }
 
@@ -162,11 +162,11 @@ export function TableShell({ head, children }: { head: React.ReactNode; children
 
 export function RowActions({ items }: { items: string[] }) {
   return (
-    <div className="flex justify-end gap-2">
+    <div className="flex flex-nowrap justify-end gap-2">
       {items.map((a) => (
         <button
           key={a}
-          className={`rounded px-2.5 py-1 text-xs font-bold ${
+          className={`whitespace-nowrap rounded px-2.5 py-1 text-xs font-bold ${
             a === "Valider"
               ? "bg-primary text-white hover:bg-primary-dark"
               : a === "Refuser" || a === "Bannir" || a === "Supprimer"
@@ -189,8 +189,8 @@ export function FilterChips({ items }: { items: string[] }) {
           key={f}
           className={
             i === 0
-              ? "rounded-full bg-primary px-3 py-1 text-xs font-bold text-white"
-              : "rounded-full border border-line bg-paper px-3 py-1 text-xs font-semibold text-ink-2 hover:border-primary hover:text-primary"
+              ? "whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-bold text-white"
+              : "whitespace-nowrap rounded-full border border-line bg-paper px-3 py-1 text-xs font-semibold text-ink-2 hover:border-primary hover:text-primary"
           }
         >
           {f}

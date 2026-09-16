@@ -109,7 +109,7 @@ export default function ProfilPage() {
               <ul className="divide-y divide-line border border-line">
                 {PUBLICATIONS.map((p) => (
                   <li key={p.title} className="flex items-center gap-4 p-4 hover:bg-primary-faint">
-                    <span className="shrink-0 rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">
+                    <span className="shrink-0 whitespace-nowrap rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">
                       {p.type}
                     </span>
                     <div className="min-w-0 flex-1">

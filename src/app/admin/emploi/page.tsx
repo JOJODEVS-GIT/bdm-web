@@ -54,7 +54,7 @@ export default function AdminEmploiPage() {
         </TableShell>
       </Card>
 
-      <Card className="mt-6" title="Recruteurs" action={<button className="text-xs font-bold uppercase text-primary hover:underline">Passer un compte en Partenaire RH</button>}>
+      <Card className="mt-6" title="Recruteurs" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Passer un compte en Partenaire RH</button>}>
         <TableShell head={<><Th>Structure</Th><Th>Formule</Th><Th>Quota</Th><Th>Offres en ligne</Th><Th>&nbsp;</Th></>}>
           {RECRUTEURS.map((r) => (
             <tr key={r.org} className="hover:bg-primary-faint">

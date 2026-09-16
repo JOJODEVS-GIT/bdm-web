@@ -57,7 +57,7 @@ export default function RedactionPage() {
       </Card>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Card title="Béninois qui comptent" action={<button className="text-xs font-bold uppercase text-primary hover:underline">+ Nouvelle fiche</button>}>
+        <Card title="Béninois qui comptent" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">+ Nouvelle fiche</button>}>
           <ul className="divide-y divide-line text-sm">
             {["Angélique Kidjo — Musique", "Djimon Hounsou — Cinéma", "Steve Mounié — Football"].map((c) => (
               <li key={c} className="flex items-center justify-between px-4 py-2.5">
@@ -67,7 +67,7 @@ export default function RedactionPage() {
             ))}
           </ul>
         </Card>
-        <Card title="Médiathèque" action={<button className="text-xs font-bold uppercase text-primary hover:underline">Téléverser</button>}>
+        <Card title="Médiathèque" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Téléverser</button>}>
           <div className="grid grid-cols-4 gap-2 p-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="aspect-square rounded border border-line bg-paper-2" />

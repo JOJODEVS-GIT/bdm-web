@@ -58,7 +58,7 @@ export default function EntreprisesPage() {
                   <p className="mt-3 text-sm text-ink-2">{e.sector} · {e.size}</p>
                   <p className="mt-auto pt-2">
                     {e.offres > 0 ? (
-                      <Link href="/emploi" className="text-xs font-bold uppercase text-primary hover:underline">
+                      <Link href="/emploi" className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">
                         {e.offres} offre{e.offres > 1 ? "s" : ""} en cours →
                       </Link>
                     ) : (

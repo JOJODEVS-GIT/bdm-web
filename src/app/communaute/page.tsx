@@ -68,7 +68,7 @@ export default function CommunautePage() {
                   { t: "Ingénieur structures h/f — bureau d'études", by: "PME Fintech · entreprise", type: "Offre" },
                 ].map((c) => (
                   <li key={c.t} className="flex items-center gap-4 p-4 hover:bg-primary-faint">
-                    <span className="shrink-0 rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">{c.type}</span>
+                    <span className="shrink-0 whitespace-nowrap rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">{c.type}</span>
                     <div className="min-w-0 flex-1">
                       <p className="font-bold leading-snug">{c.t}</p>
                       <p className="mt-0.5 text-xs text-muted">{c.by}</p>

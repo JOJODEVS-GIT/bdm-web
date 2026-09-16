@@ -61,7 +61,7 @@ export default function AgendaPage() {
                     </h2>
                     <p className="card-location mt-1">{e.city} — par {e.org}</p>
                   </div>
-                  <Link href="/agenda/evenement-exemple" className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
+                  <Link href="/agenda/evenement-exemple" className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
                     Voir
                   </Link>
                 </li>

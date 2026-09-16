@@ -71,7 +71,7 @@ export default function HcbePage() {
                     <td className="p-3 font-bold">{c.city}</td>
                     <td className="p-3">{c.type}</td>
                     <td className="p-3">{c.tel}</td>
-                    <td className="p-3 text-right"><button className="text-xs font-bold uppercase text-primary hover:underline">Détails →</button></td>
+                    <td className="p-3 text-right"><button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Détails →</button></td>
                   </tr>
                 ))}
               </tbody>

@@ -179,12 +179,12 @@ export default function EmploiPage() {
                         {o.sector} — {o.date}
                       </p>
                     </div>
-                    <span className="shrink-0 rounded bg-primary-light px-2 py-1 text-xs font-bold text-primary-dark">
+                    <span className="shrink-0 whitespace-nowrap rounded bg-primary-light px-2 py-1 text-xs font-bold text-primary-dark">
                       {o.type}
                     </span>
                     <Link
                       href="/emploi/offre-exemple"
-                      className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white"
+                      className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white"
                     >
                       Consulter
                     </Link>

@@ -40,7 +40,7 @@ export default function MotClePage() {
             <ul className="divide-y divide-line border border-line">
               {CONTENUS.map((c) => (
                 <li key={c.t} className="flex items-center gap-4 p-4 hover:bg-primary-faint">
-                  <span className="shrink-0 rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">{c.type}</span>
+                  <span className="shrink-0 whitespace-nowrap rounded bg-primary-light px-2 py-1 text-xs font-bold uppercase text-primary-dark">{c.type}</span>
                   <p className="min-w-0 flex-1 font-bold leading-snug">
                     <Link href={c.href} className="hover:text-primary">{c.t}</Link>
                   </p>

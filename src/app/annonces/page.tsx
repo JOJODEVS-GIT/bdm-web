@@ -61,7 +61,7 @@ export default function AnnoncesPage() {
                     <p className="card-location mt-1">{a.city} · {a.date}</p>
                   </div>
                   <span className="shrink-0 font-display text-lg font-black text-primary">{a.price}</span>
-                  <button className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
+                  <button className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
                     Répondre
                   </button>
                 </li>

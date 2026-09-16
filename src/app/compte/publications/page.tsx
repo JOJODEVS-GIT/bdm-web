@@ -45,11 +45,11 @@ export default function PublicationsPage() {
                 <td className="px-4 py-3 text-ink-2">{p.type}</td>
                 <td className="whitespace-nowrap px-4 py-3 text-muted">{p.d}</td>
                 <td className="px-4 py-3 tabular-nums">{p.vues}</td>
-                <td className="px-4 py-3"><span className={`rounded px-2 py-0.5 text-xs font-bold ${p.tone}`}>{p.st}</span></td>
+                <td className="px-4 py-3"><span className={`whitespace-nowrap rounded px-2 py-0.5 text-xs font-bold ${p.tone}`}>{p.st}</span></td>
                 <td className="px-4 py-3">
-                  <div className="flex justify-end gap-2">
-                    <button className="rounded border border-line px-2.5 py-1 text-xs font-bold text-ink-2 hover:border-primary hover:text-primary">Modifier</button>
-                    <button className="rounded border border-danger px-2.5 py-1 text-xs font-bold text-danger hover:bg-danger hover:text-white">Retirer</button>
+                  <div className="flex flex-nowrap justify-end gap-2">
+                    <button className="whitespace-nowrap rounded border border-line px-2.5 py-1 text-xs font-bold text-ink-2 hover:border-primary hover:text-primary">Modifier</button>
+                    <button className="whitespace-nowrap rounded border border-danger px-2.5 py-1 text-xs font-bold text-danger hover:bg-danger hover:text-white">Retirer</button>
                   </div>
                 </td>
               </tr>

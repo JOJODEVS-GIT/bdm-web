@@ -30,9 +30,9 @@ export default function CandidaturesPage() {
                 <td className="px-4 py-3 font-bold">{c.o}</td>
                 <td className="px-4 py-3 text-ink-2">{c.org}</td>
                 <td className="whitespace-nowrap px-4 py-3 text-muted">{c.d}</td>
-                <td className="px-4 py-3"><span className={`rounded px-2 py-0.5 text-xs font-bold ${c.tone}`}>{c.st}</span></td>
-                <td className="px-4 py-3 text-right">
-                  <Link href="/emploi/offre-exemple" className="text-xs font-bold uppercase text-primary hover:underline">Voir l&apos;offre</Link>
+                <td className="px-4 py-3"><span className={`whitespace-nowrap rounded px-2 py-0.5 text-xs font-bold ${c.tone}`}>{c.st}</span></td>
+                <td className="whitespace-nowrap px-4 py-3 text-right">
+                  <Link href="/emploi/offre-exemple" className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Voir l&apos;offre</Link>
                 </td>
               </tr>
             ))}

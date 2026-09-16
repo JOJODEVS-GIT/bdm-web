@@ -124,7 +124,7 @@ export default function ArticlePage() {
                   <p className="font-bold">La Rédaction — Béninois du Monde</p>
                   <p className="text-sm text-muted">Portraits et parcours de la diaspora</p>
                 </div>
-                <button className="rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
+                <button className="whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
                   Écrire à l&apos;auteur
                 </button>
               </div>

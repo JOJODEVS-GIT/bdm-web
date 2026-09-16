@@ -30,7 +30,7 @@ export default function AdminParametresPage() {
                 <span className="text-ink-2">{x.l}</span>
                 <span className="flex items-center gap-2 font-bold">
                   {x.v}
-                  <button className="text-xs font-bold uppercase text-primary hover:underline">Modifier</button>
+                  <button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">Modifier</button>
                 </span>
               </li>
             ))}
@@ -91,7 +91,7 @@ export default function AdminParametresPage() {
         </Card>
       </div>
 
-      <Card className="mt-6" title="Équipe d'administration" action={<button className="text-xs font-bold uppercase text-primary hover:underline">+ Inviter</button>}>
+      <Card className="mt-6" title="Équipe d'administration" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">+ Inviter</button>}>
         <TableShell head={<><Th>Personne</Th><Th>Rôle</Th><Th>Sécurité</Th><Th>&nbsp;</Th></>}>
           {ADMINS.map((a) => (
             <tr key={a.n} className="hover:bg-primary-faint">

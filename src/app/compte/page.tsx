@@ -35,14 +35,14 @@ export default function ComptePage() {
             { t: "Ingénieur structures h/f", type: "Offre", s: "En modération", ok: false },
           ].map((p) => (
             <li key={p.t} className="flex flex-wrap items-center gap-3 p-4">
-              <span className="rounded bg-primary-light px-2 py-0.5 text-xs font-bold uppercase text-primary-dark">
+              <span className="whitespace-nowrap rounded bg-primary-light px-2 py-0.5 text-xs font-bold uppercase text-primary-dark">
                 {p.type}
               </span>
               <p className="min-w-0 flex-1 font-bold">{p.t}</p>
-              <span className={`rounded px-2 py-0.5 text-xs font-bold ${p.ok ? "bg-primary-light text-primary-dark" : "bg-accent-light text-ink"}`}>
+              <span className={`whitespace-nowrap rounded px-2 py-0.5 text-xs font-bold ${p.ok ? "bg-primary-light text-primary-dark" : "bg-accent-light text-ink"}`}>
                 {p.s}
               </span>
-              <Link href="/compte/publications" className="text-xs font-bold uppercase text-primary hover:underline">
+              <Link href="/compte/publications" className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">
                 Gérer
               </Link>
             </li>

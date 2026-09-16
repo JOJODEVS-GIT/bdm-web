@@ -40,7 +40,7 @@ export default function AdminServicesPage() {
         <StatCard label="Signalées" value="1" tone="danger" hint="fermée / erreur" />
       </div>
 
-      <Card className="mt-4" title="Bonnes adresses" action={<button className="text-xs font-bold uppercase text-primary hover:underline">+ Ajouter une adresse</button>}>
+      <Card className="mt-4" title="Bonnes adresses" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">+ Ajouter une adresse</button>}>
         <TableShell head={<><Th>Adresse</Th><Th>Catégorie</Th><Th>Ville</Th><Th>Statut</Th><Th>&nbsp;</Th></>}>
           {ADRESSES.map((a) => (
             <tr key={a.n} className="hover:bg-primary-faint">

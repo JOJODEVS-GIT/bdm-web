@@ -24,7 +24,7 @@ export default function AdminMemoirePage() {
         <StatCard label="Guides pratiques" value="4" />
       </div>
 
-      <Card className="mt-5" title="Lieux de mémoire" action={<button className="text-xs font-bold uppercase text-primary hover:underline">+ Ajouter un lieu</button>}>
+      <Card className="mt-5" title="Lieux de mémoire" action={<button className="whitespace-nowrap text-xs font-bold uppercase text-primary hover:underline">+ Ajouter un lieu</button>}>
         <TableShell head={<><Th>Lieu</Th><Th>Ville</Th><Th>Validation historique</Th><Th>&nbsp;</Th></>}>
           {LIEUX.map((l) => (
             <tr key={l.n} className="hover:bg-primary-faint">

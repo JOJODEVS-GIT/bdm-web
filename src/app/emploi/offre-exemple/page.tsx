@@ -97,7 +97,7 @@ export default function OffrePage() {
                 ].map((t) => (
                   <li key={t} className="flex items-center gap-4 p-4 hover:bg-primary-faint">
                     <p className="min-w-0 flex-1 font-bold leading-snug">{t}</p>
-                    <Link href="/emploi" className="shrink-0 rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
+                    <Link href="/emploi" className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
                       Consulter
                     </Link>
                   </li>

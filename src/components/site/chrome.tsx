@@ -305,7 +305,7 @@ export function AlertsBox({ keywords }: { keywords: string[] }) {
         {keywords.map((k) => (
           <span
             key={k}
-            className="rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark"
+            className="whitespace-nowrap rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark"
           >
             {k}
           </span>
@@ -325,7 +325,7 @@ export function KeywordChips({ keywords }: { keywords: string[] }) {
         <Link
           key={k}
           href="/mot/exemple"
-          className="rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark hover:bg-primary hover:text-white"
+          className="whitespace-nowrap rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark hover:bg-primary hover:text-white"
         >
           {k}
         </Link>
