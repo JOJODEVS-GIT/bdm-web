@@ -246,11 +246,11 @@ export function SiteFooter() {
           <div className="flex flex-col justify-between gap-6">
             <ul className="flex flex-wrap gap-x-7 gap-y-2 text-sm font-semibold">
               {[
-                { label: "Contact", href: "/hcbe" },
+                { label: "Contact", href: "/contact" },
                 { label: "Annonceurs", href: "/annonceurs" },
-                { label: "Confidentialité", href: "#" },
-                { label: "Infos légales", href: "#" },
-                { label: "Accueil & hébergement", href: "/pratique/chercher-trouver" },
+                { label: "Confidentialité", href: "/legal/confidentialite" },
+                { label: "Infos légales", href: "/legal/mentions-legales" },
+                { label: "Accueil & hébergement", href: "/pratique/accueil" },
                 { label: "Notifications", href: "/compte" },
               ].map((l) => (
                 <li key={l.label}>

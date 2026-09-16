@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader, SiteFooter, SectionTitle, PageBanner } from "@/components/site/chrome";
 
 export const metadata: Metadata = { title: "Le HCBE" };
@@ -82,7 +83,7 @@ export default function HcbePage() {
         <section className="border-2 border-primary p-6 text-center">
           <h2 className="font-display text-xl font-bold">Nous écrire</h2>
           <p className="mx-auto mt-1 max-w-xl text-sm text-ink-2">Question consulaire, presse, partenariat : le formulaire de contact route votre message au bon service.</p>
-          <button className="mt-4 rounded bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary-dark">Ouvrir le formulaire de contact</button>
+          <Link href="/contact" className="mt-4 inline-block rounded bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary-dark">Ouvrir le formulaire de contact</Link>
         </section>
       </main>
       <SiteFooter />
