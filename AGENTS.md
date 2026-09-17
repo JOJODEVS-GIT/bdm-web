@@ -1,5 +1,7 @@
 # bdm-web — Béninois du Monde
 
+> **Commence par lire `ETAT-PROJET.md`** (niveau du projet, liens vitaux, prochaine étape) et tiens-le à jour à chaque étape franchie.
+
 Portail média + communautaire de la diaspora béninoise (modèle : reunionnaisdumonde.com).
 Client : HCBE. Dev : Josué (JOJO.DEV's). Cahier des charges : Notion « 🇧🇯 Béninois du Monde » + `~/Desktop/HCBE-reprise/CDC-Beninois-du-Monde-v2.md`.
 
