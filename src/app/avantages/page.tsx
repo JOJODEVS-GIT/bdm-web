@@ -56,7 +56,7 @@ export default function AvantagesPage() {
             <div className="border-2 border-primary p-4">
               <h3 className="section-title text-sm">Réservé aux <em>membres</em></h3>
               <p className="mt-2 text-sm text-ink-2">Les codes promo s&apos;affichent avec un compte gratuit. Une raison de plus de rejoindre la communauté.</p>
-              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/inscription" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Créer mon compte
               </Link>
             </div>

@@ -24,7 +24,7 @@ export default function EntreprisesPage() {
         em="entreprises"
         desc="Les entreprises béninoises et de la diaspora : elles se présentent, publient leurs actualités et recrutent directement sur le site."
       >
-        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/inscription" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Inscrire mon entreprise
         </Link>
         <Link href="/emploi/recruteurs" className="whitespace-nowrap rounded border-2 border-white/60 px-4 py-2 text-sm font-bold text-white hover:border-accent hover:text-accent">
@@ -50,7 +50,7 @@ export default function EntreprisesPage() {
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-paper-2 text-xs font-bold text-muted">LOGO</div>
                     <div className="min-w-0">
                       <h2 className="font-bold leading-tight">
-                        <Link href="/emploi/offre-exemple" className="hover:text-primary">{e.name}</Link>
+                        <Link href="/communaute/entreprises/pme-fintech" className="hover:text-primary">{e.name}</Link>
                       </h2>
                       <p className="card-location mt-0.5">{e.city}</p>
                     </div>

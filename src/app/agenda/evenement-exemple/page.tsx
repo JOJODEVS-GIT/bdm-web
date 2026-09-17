@@ -25,7 +25,7 @@ export default function EvenementPage() {
             <div className="mt-5 grid max-w-2xl gap-x-8 gap-y-3 border border-line p-5 text-sm sm:grid-cols-2">
               <div><p className="text-xs font-bold uppercase tracking-wider text-muted">Date</p><p className="mt-0.5 font-bold">Samedi 27 septembre 2026 · 12h00 – 19h00</p></div>
               <div><p className="text-xs font-bold uppercase tracking-wider text-muted">Lieu</p><p className="mt-0.5">Bois de Vincennes, pelouse de Reuilly · Paris</p></div>
-              <div><p className="text-xs font-bold uppercase tracking-wider text-muted">Organisateur</p><p className="mt-0.5"><Link href="/communaute/associations" className="font-semibold text-primary hover:underline">Bénin Diaspora Île-de-France</Link></p></div>
+              <div><p className="text-xs font-bold uppercase tracking-wider text-muted">Organisateur</p><p className="mt-0.5"><Link href="/communaute/associations/benin-diaspora-idf" className="font-semibold text-primary hover:underline">Bénin Diaspora Île-de-France</Link></p></div>
               <div><p className="text-xs font-bold uppercase tracking-wider text-muted">Entrée</p><p className="mt-0.5">Libre — chacun apporte un plat</p></div>
             </div>
 

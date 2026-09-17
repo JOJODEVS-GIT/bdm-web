@@ -24,7 +24,7 @@ export default function AssociationsPage() {
         em="associations"
         desc="Les associations béninoises actives dans le monde : culturelles, étudiantes, sportives, humanitaires. Chaque association gère sa fiche et publie ses événements."
       >
-        <Link href="/publier" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
+        <Link href="/inscription" className="whitespace-nowrap rounded bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-dark">
           Référencer mon association
         </Link>
       </PageBanner>
@@ -47,7 +47,7 @@ export default function AssociationsPage() {
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-paper-2 text-xs font-bold text-muted">LOGO</div>
                     <div className="min-w-0">
                       <h2 className="font-bold leading-tight">
-                        <Link href="/communaute/membres/aichatou-s" className="hover:text-primary">{a.name}</Link>
+                        <Link href="/communaute/associations/benin-diaspora-idf" className="hover:text-primary">{a.name}</Link>
                       </h2>
                       <p className="card-location mt-0.5">{a.city}</p>
                     </div>
@@ -75,7 +75,7 @@ export default function AssociationsPage() {
               <p className="mt-2 text-sm text-ink-2">
                 Créez sa fiche gratuitement : elle apparaît dans l&apos;annuaire et sur la carte, et vous publiez vos événements directement.
               </p>
-              <Link href="/publier" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
+              <Link href="/inscription" className="mt-3 inline-block whitespace-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-dark">
                 Référencer
               </Link>
             </div>

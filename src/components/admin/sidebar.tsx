@@ -21,7 +21,7 @@ import {
 
 /* Barre latérale du back-office — les 13 modules (CDC §7.17). */
 
-const NAV = [
+export const ADMIN_NAV = [
   { label: "Tableau de bord", href: "/admin", icon: LayoutDashboard },
   { label: "Modération", href: "/admin/moderation", icon: ShieldAlert, badge: 19 },
   { label: "Rédaction", href: "/admin/redaction", icon: PenLine },
@@ -51,7 +51,7 @@ export function AdminSidebar() {
       </Link>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
-        {NAV.map((n) => {
+        {ADMIN_NAV.map((n) => {
           const active =
             n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href);
           return (

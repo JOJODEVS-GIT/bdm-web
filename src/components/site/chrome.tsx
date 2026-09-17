@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Bell } from "lucide-react";
 import { NAV } from "./nav-data";
-import { StickyBar, Crumbs } from "./header-extras";
+import { StickyBar, Crumbs, MobileMenu } from "./header-extras";
 import { MapBand } from "./map-band";
 
 /* Composants de structure partagés par toutes les pages publiques. */
@@ -48,12 +48,7 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
               </Link>
             </div>
 
-            <button
-              className="rounded border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
-              aria-label="Ouvrir le menu"
-            >
-              Menu
-            </button>
+            <MobileMenu />
           </div>
         </div>
 

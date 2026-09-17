@@ -23,7 +23,7 @@ export default function OffrePage() {
                   Développeur full-stack h/f
                 </h1>
                 <p className="card-location mt-2">
-                  <Link href="/communaute/entreprises" className="hover:text-primary">PME Fintech</Link> · Cotonou · Bénin
+                  <Link href="/communaute/entreprises/pme-fintech" className="hover:text-primary">PME Fintech</Link> · Cotonou · Bénin
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold">
                   <span className="rounded bg-primary-light px-2 py-1 text-primary-dark">CDI</span>
@@ -107,7 +107,7 @@ export default function OffrePage() {
               <p className="mt-2 text-sm font-bold">PME Fintech</p>
               <p className="text-sm text-ink-2">Paiement digital · 45 salariés · Cotonou</p>
               <p className="mt-1 text-xs text-muted">3 offres en ligne · membre depuis 2026</p>
-              <Link href="/communaute/entreprises" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
+              <Link href="/communaute/entreprises/pme-fintech" className="mt-3 inline-block whitespace-nowrap text-sm font-bold uppercase text-primary hover:underline">
                 Voir la fiche entreprise →
               </Link>
             </div>

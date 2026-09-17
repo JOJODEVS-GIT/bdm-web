@@ -56,14 +56,14 @@ export default function AnnoncesPage() {
                   <div className="min-w-0 flex-1">
                     <span className="text-[0.7rem] font-bold uppercase tracking-wider text-primary">{a.cat}</span>
                     <h2 className="font-bold leading-snug">
-                      <Link href="#" className="hover:text-primary">{a.title}</Link>
+                      <Link href="/annonces/annonce-exemple" className="hover:text-primary">{a.title}</Link>
                     </h2>
                     <p className="card-location mt-1">{a.city} · {a.date}</p>
                   </div>
                   <span className="shrink-0 font-display text-lg font-black text-primary">{a.price}</span>
-                  <button className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
+                  <Link href="/annonces/annonce-exemple" className="shrink-0 whitespace-nowrap rounded border-2 border-primary px-3 py-1.5 text-xs font-bold uppercase text-primary hover:bg-primary hover:text-white">
                     Répondre
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -44,7 +44,7 @@ export default function CelebritesPage() {
                   <div className="p-4">
                     <span className="text-[0.7rem] font-bold uppercase tracking-wider text-primary">{p.domain}</span>
                     <h2 className="mt-1 font-display text-lg font-bold leading-tight">
-                      <Link href="#" className="hover:text-primary">{p.name}</Link>
+                      <Link href="/magazine/beninois-qui-comptent/angelique-kidjo" className="hover:text-primary">{p.name}</Link>
                     </h2>
                     <p className="mt-1 text-sm text-ink-2">{p.note}</p>
                   </div>

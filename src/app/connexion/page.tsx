@@ -39,7 +39,7 @@ export default function ConnexionPage() {
               <li key={b} className="flex gap-2"><span className="font-bold text-primary">✓</span>{b}</li>
             ))}
           </ul>
-          <Link href="/publier" className="mt-5 inline-block rounded bg-primary px-6 py-2.5 text-sm font-bold uppercase text-white hover:bg-primary-dark">
+          <Link href="/inscription" className="mt-5 inline-block rounded bg-primary px-6 py-2.5 text-sm font-bold uppercase text-white hover:bg-primary-dark">
             Créer mon compte gratuit
           </Link>
         </section>

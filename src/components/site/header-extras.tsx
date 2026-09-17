@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { NAV } from "./nav-data";
 
 /* Barre sticky compacte : apparaît après 280 px de défilement (proposition 1). */
@@ -99,6 +99,12 @@ const LABELS: Record<string, string> = {
   "mentions-legales": "Mentions légales",
   confidentialite: "Confidentialité",
   cgu: "CGU",
+  inscription: "Créer un compte",
+  "pme-fintech": "PME Fintech",
+  "benin-diaspora-idf": "Bénin Diaspora IDF",
+  "gangbe-brass": "Gangbé Brass Band",
+  "annonce-exemple": "Billet Paris–Cotonou",
+  "angelique-kidjo": "Angélique Kidjo",
 };
 
 function labelFor(seg: string) {
@@ -140,5 +146,88 @@ export function Crumbs() {
         ))}
       </ol>
     </nav>
+  );
+}
+
+
+/* Menu mobile plein écran (burger) — nav complète + recherche + actions. */
+
+export function MobileMenu() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center gap-2 rounded border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
+        aria-label="Ouvrir le menu"
+        aria-expanded={open}
+      >
+        <Menu aria-hidden className="h-5 w-5" /> Menu
+      </button>
+
+      {open && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden />
+          <div className="absolute inset-y-0 right-0 flex w-[300px] max-w-[85vw] flex-col bg-primary-darker text-white shadow-2xl">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+              <span className="font-display text-lg font-extrabold">
+                Béninois<span className="text-accent"> du Monde</span>
+              </span>
+              <button onClick={() => setOpen(false)} aria-label="Fermer le menu" className="text-white/80 hover:text-accent">
+                <X aria-hidden className="h-6 w-6" />
+              </button>
+            </div>
+
+            <form action="/recherche" className="border-b border-white/10 p-4">
+              <input
+                type="search"
+                name="q"
+                placeholder="Rechercher sur le site…"
+                className="w-full rounded-md border border-white/25 bg-white/10 px-3 py-2.5 text-sm text-white placeholder:text-white/50 focus:border-accent focus:outline-none"
+              />
+            </form>
+
+            <nav className="flex-1 overflow-y-auto p-3">
+              {NAV.map((n) => (
+                <Link
+                  key={n.href}
+                  href={n.href}
+                  onClick={close}
+                  className="block rounded px-3 py-3 text-[0.95rem] font-bold uppercase tracking-wide text-white/85 hover:bg-white/10 hover:text-accent"
+                >
+                  {n.label}
+                </Link>
+              ))}
+              <div className="my-2 h-px bg-white/10" />
+              {[
+                { label: "Mémoire & racines", href: "/memoire" },
+                { label: "Le HCBE", href: "/hcbe" },
+                { label: "Contact", href: "/contact" },
+              ].map((n) => (
+                <Link key={n.href} href={n.href} onClick={close} className="block rounded px-3 py-2.5 text-sm font-semibold text-white/70 hover:bg-white/10 hover:text-accent">
+                  {n.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="space-y-2.5 border-t border-white/10 p-4">
+              <Link href="/publier" onClick={close} className="block rounded bg-accent py-2.5 text-center text-sm font-bold text-ink hover:bg-accent-dark">
+                Publier
+              </Link>
+              <Link href="/connexion" onClick={close} className="block rounded border border-white/30 py-2.5 text-center text-sm font-bold text-white/90 hover:border-accent hover:text-accent">
+                Se connecter
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
