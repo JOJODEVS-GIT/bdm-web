@@ -34,49 +34,56 @@ export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
   useEffect(() => {
     if (!open || !containerRef.current || mapRef.current) return;
 
-    const map = new maplibregl.Map({
-      container: containerRef.current,
-      style: {
-        version: 8,
-        sources: {
-          osm: {
-            type: "raster",
-            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-            tileSize: 256,
-            attribution: "© OpenStreetMap",
+    let map: maplibregl.Map;
+    try {
+        map = new maplibregl.Map({
+        container: containerRef.current,
+        style: {
+          version: 8,
+          sources: {
+            osm: {
+              type: "raster",
+              tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+              tileSize: 256,
+              attribution: "© OpenStreetMap",
+            },
           },
+          layers: [{ id: "osm", type: "raster", source: "osm" }],
         },
-        layers: [{ id: "osm", type: "raster", source: "osm" }],
-      },
-      bounds: [
-        [-82, -8],
-        [118, 55],
-      ],
-      fitBoundsOptions: { padding: { top: 30, bottom: 30, left: 70, right: 70 } },
-      minZoom: 0.8,
-      maxZoom: 12,
-      attributionControl: { compact: true },
-    });
+        bounds: [
+          [-82, -8],
+          [118, 55],
+        ],
+        fitBoundsOptions: { padding: { top: 30, bottom: 30, left: 70, right: 70 } },
+        minZoom: 0.8,
+        maxZoom: 12,
+        attributionControl: { compact: true },
+      });
 
-    // Navigation au clic sur +/- ; pas de zoom à la molette (la page doit défiler)
-    map.scrollZoom.disable();
-    map.dragRotate.disable();
-    map.touchZoomRotate.disableRotation();
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+      // Navigation au clic sur +/- ; pas de zoom à la molette (la page doit défiler)
+      map.scrollZoom.disable();
+      map.dragRotate.disable();
+      map.touchZoomRotate.disableRotation();
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
-    for (const v of VILLES) {
-      const el = document.createElement("button");
-      el.className = v.big ? "bdm-marker bdm-marker-big" : "bdm-marker";
-      el.innerHTML = `<b>${v.n}</b>&nbsp;${v.name}`;
-      el.setAttribute("aria-label", `${v.n} membres à ${v.name}`);
-      new maplibregl.Marker({ element: el, anchor: "center" })
-        .setLngLat([v.lng, v.lat])
-        .addTo(map);
+      for (const v of VILLES) {
+        const el = document.createElement("button");
+        el.className = v.big ? "bdm-marker bdm-marker-big" : "bdm-marker";
+        el.innerHTML = `<b>${v.n}</b>&nbsp;${v.name}`;
+        el.setAttribute("aria-label", `${v.n} membres à ${v.name}`);
+        new maplibregl.Marker({ element: el, anchor: "center" })
+          .setLngLat([v.lng, v.lat])
+          .addTo(map);
+      }
+
+      mapRef.current = map;
+    } catch {
+      // WebGL indisponible (navigateur ancien, capture headless) : le fond
+      // stylisé du conteneur sert de carte de repli, sans planter la page.
+      return;
     }
-
-    mapRef.current = map;
     return () => {
-      map.remove();
+      mapRef.current?.remove();
       mapRef.current = null;
     };
   }, [open]);
