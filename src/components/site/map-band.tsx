@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -82,13 +83,21 @@ export function MapBand({ defaultOpen = false }: { defaultOpen?: boolean }) {
 
   return (
     <section aria-label="Carte de la diaspora">
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="w-full bg-primary-darker py-3 text-center text-sm font-bold uppercase tracking-[0.15em] text-accent hover:bg-primary-dark"
-      >
-        {open ? "▴ Replier la carte de la diaspora" : "▾ Déplier la carte de la diaspora"}
-      </button>
+      {/* Ouvreur façon site modèle : chevron + texte replier/déplier */}
+      <div className="border-b border-line bg-paper-2">
+        <button
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          className="group mx-auto flex items-center gap-2 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary-dark"
+        >
+          <ChevronDown
+            aria-hidden
+            className={`h-4 w-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            strokeWidth={2.5}
+          />
+          {open ? "Replier la carte" : "Déplier la carte"}
+        </button>
+      </div>
 
       {open && (
         <div className="relative border-b border-line">

@@ -14,11 +14,6 @@ export default function EvenementPage() {
       <main className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <article className="min-w-0">
-            <nav className="text-xs uppercase tracking-wider text-muted">
-              <Link href="/" className="hover:text-primary">Accueil</Link> ›{" "}
-              <Link href="/agenda" className="hover:text-primary">Agenda</Link> ›{" "}
-              <span className="font-bold text-primary">Événement</span>
-            </nav>
 
             <div className="mt-4 flex aspect-[21/9] items-center justify-center border border-line bg-paper-2 text-sm text-muted">visuel de l&apos;événement</div>
 

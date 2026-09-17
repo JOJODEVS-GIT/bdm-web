@@ -13,11 +13,6 @@ export default function OffrePage() {
       <main className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <article className="min-w-0">
-            <nav className="text-xs uppercase tracking-wider text-muted">
-              <Link href="/" className="hover:text-primary">Accueil</Link> ›{" "}
-              <Link href="/emploi" className="hover:text-primary">Emploi & stages</Link> ›{" "}
-              <span className="font-bold text-primary">Offre</span>
-            </nav>
 
             <div className="mt-4 flex flex-wrap items-start gap-4 border border-line p-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center border border-line bg-paper-2 text-xs font-bold text-muted">

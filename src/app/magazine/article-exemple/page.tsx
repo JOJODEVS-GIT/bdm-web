@@ -30,16 +30,6 @@ export default function ArticlePage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <article className="min-w-0">
             {/* Fil d'Ariane */}
-            <nav className="text-xs uppercase tracking-wider text-muted">
-              <Link href="/" className="hover:text-primary">
-                Accueil
-              </Link>{" "}
-              ›{" "}
-              <Link href="/magazine/article-exemple" className="hover:text-primary">
-                Magazine
-              </Link>{" "}
-              › <span className="text-primary font-bold">Portraits</span>
-            </nav>
 
             {/* Titre */}
             <span className="mt-4 inline-block bg-accent px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-ink">

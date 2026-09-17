@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter, AdSlot, KeywordChips } from "@/components/site/chrome";
 import { Star } from "lucide-react";
@@ -14,11 +13,6 @@ export default function AdressePage() {
       <main className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           <article className="min-w-0">
-            <nav className="text-xs uppercase tracking-wider text-muted">
-              <Link href="/" className="hover:text-primary">Accueil</Link> ›{" "}
-              <Link href="/adresses" className="hover:text-primary">Bonnes adresses</Link> ›{" "}
-              <span className="font-bold text-primary">Chez Maman Bénin</span>
-            </nav>
 
             <div className="mt-4 grid gap-2 sm:grid-cols-3">
               <div className="aspect-[4/3] border border-line bg-paper-2 sm:col-span-2 sm:row-span-2 sm:aspect-auto" />

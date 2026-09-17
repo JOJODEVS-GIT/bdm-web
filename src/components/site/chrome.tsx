@@ -1,22 +1,17 @@
 import Link from "next/link";
 import { Bell } from "lucide-react";
+import { NAV } from "./nav-data";
+import { StickyBar, Crumbs } from "./header-extras";
 import { MapBand } from "./map-band";
 
 /* Composants de structure partagés par toutes les pages publiques. */
 
-export const NAV = [
-  { label: "Emploi & stages", href: "/emploi" },
-  { label: "Magazine", href: "/magazine" },
-  { label: "Communauté", href: "/communaute" },
-  { label: "Bonnes adresses", href: "/adresses" },
-  { label: "Agenda", href: "/agenda" },
-  { label: "Avantages", href: "/avantages" },
-  { label: "Annonces", href: "/annonces" },
-];
+export { NAV };
 
 export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolean }) {
   return (
     <>
+      <StickyBar />
       <header className="border-b border-line">
         {/* Style A « Institutionnel inversé » : rangée haute en vert profond */}
         <div className="bg-primary-darker text-white">
@@ -31,16 +26,14 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
             </Link>
 
             <div className="hidden items-center gap-5 md:flex">
-              <Link
-                href="/recherche"
-                aria-label="Rechercher"
-                className="text-white/80 hover:text-accent"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m20 20-3.5-3.5" />
-                </svg>
-              </Link>
+              <form action="/recherche" className="hidden lg:block">
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="Rechercher sur le site…"
+                  className="w-56 rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-accent focus:outline-none"
+                />
+              </form>
               <Link
                 href="/connexion"
                 className="text-[0.95rem] font-semibold text-white/85 hover:text-accent"
@@ -78,6 +71,8 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
             ))}
           </div>
         </nav>
+
+        <Crumbs />
       </header>
 
       {/* Carte : ouverte sur l'accueil, repliée ailleurs */}
