@@ -165,7 +165,7 @@ export function MobileMenu() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 rounded border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
+        className="flex shrink-0 items-center gap-2 rounded border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
         aria-label="Ouvrir le menu"
         aria-expanded={open}
       >

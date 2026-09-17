@@ -15,12 +15,12 @@ export function SiteHeader({ mapDefaultOpen = false }: { mapDefaultOpen?: boolea
       <header className="border-b border-line">
         {/* Style A « Institutionnel inversé » : rangée haute en vert profond */}
         <div className="bg-primary-darker text-white">
-          <div className="flex w-full items-center justify-between gap-6 px-6 py-6">
-            <Link href="/" className="shrink-0">
-              <span className="font-display text-3xl font-extrabold leading-none">
+          <div className="flex w-full items-center justify-between gap-4 px-4 py-5 sm:gap-6 sm:px-6 sm:py-6">
+            <Link href="/" className="min-w-0">
+              <span className="font-display text-[1.55rem] font-extrabold leading-none sm:text-3xl">
                 Béninois<span className="text-accent"> du Monde</span>
               </span>
-              <span className="mt-1.5 block text-[0.7rem] uppercase tracking-[0.25em] text-white/60">
+              <span className="mt-1.5 block truncate text-[0.58rem] uppercase tracking-[0.16em] text-white/60 sm:text-[0.7rem] sm:tracking-[0.25em]">
                 Le réseau de la diaspora béninoise
               </span>
             </Link>

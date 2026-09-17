@@ -76,6 +76,10 @@ main {
 }
 
 body {
+  overflow-x: clip;
+}
+
+body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
