@@ -140,32 +140,9 @@ const SITEMAP: { title: string; href: string; links: { label: string; href: stri
       { label: "Déposer une offre", href: "/publier" },
     ],
   },
-  {
-    title: "Bonnes adresses",
-    href: "/adresses",
-    links: [
-      { label: "Toutes les adresses", href: "/adresses" },
-      { label: "Restaurants", href: "/adresses" },
-      { label: "Proposer une adresse", href: "/publier" },
-    ],
-  },
-  {
-    title: "Agenda",
-    href: "/agenda",
-    links: [
-      { label: "Événements à venir", href: "/agenda" },
-      { label: "Annoncer un événement", href: "/publier" },
-      { label: "S'abonner (iCal)", href: "/agenda" },
-    ],
-  },
-  {
-    title: "Avantages",
-    href: "/avantages",
-    links: [
-      { label: "Toutes les réductions", href: "/avantages" },
-      { label: "Devenir partenaire", href: "/annonceurs" },
-    ],
-  },
+  { title: "Bonnes adresses", href: "/adresses", links: [] },
+  { title: "Agenda", href: "/agenda", links: [] },
+  { title: "Avantages", href: "/avantages", links: [] },
   {
     title: "Pratique",
     href: "/annonces",
